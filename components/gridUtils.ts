@@ -1,15 +1,29 @@
-export function useColSpan(n: number): string {
-    if (n < 1 || n > 12) {
+export function useCols(n?: number): string {
+    if (n && (n < 1 || n > 12)) {
         throw new Error('Input must be between 1 and 12.');
     }
-    return colSpans[n];
+    return n ? cols[n] : 'grid-cols-12';
 }
 
-export function useRowSpan(n: number): string {
-    if (n < 1 || n > 12) {
+export function useRows(n?: number): string {
+    if (n && (n < 1 || n > 12)) {
         throw new Error('Input must be between 1 and 12.');
     }
-    return rowSpans[n];
+    return n ? rows[n] : 'grid-rows-4';
+}
+
+export function useColSpan(n?: number): string {
+    if (n && (n < 1 || n > 12)) {
+        throw new Error('Input must be between 1 and 12.');
+    }
+    return n ? colSpans[n] : 'col-auto';
+}
+
+export function useRowSpan(n?: number): string {
+    if (n && (n < 1 || n > 12)) {
+        throw new Error('Input must be between 1 and 12.');
+    }
+    return n ? rowSpans[n] : 'row-auto';
 }
 
 export function useColStart(n?: number): string {
@@ -25,6 +39,36 @@ export function useRowStart(n?: number): string {
     }
     return n ? rowStart[n] : 'row-start-auto';
 }
+
+const cols: Record<number, string> = {
+    1: 'grid-cols-1',
+    2: 'grid-cols-2',
+    3: 'grid-cols-3',
+    4: 'grid-cols-4',
+    5: 'grid-cols-5',
+    6: 'grid-cols-6',
+    7: 'grid-cols-7',
+    8: 'grid-cols-8',
+    9: 'grid-cols-9',
+    10: 'grid-cols-10',
+    11: 'grid-cols-11',
+    12: 'grid-cols-12'
+};
+
+const rows: Record<number, string> = {
+    1: 'grid-rows-1',
+    2: 'grid-rows-2',
+    3: 'grid-rows-3',
+    4: 'grid-rows-4',
+    5: 'grid-rows-5',
+    6: 'grid-rows-6',
+    7: 'grid-rows-7',
+    8: 'grid-rows-8',
+    9: 'grid-rows-9',
+    10: 'grid-rows-10',
+    11: 'grid-rows-11',
+    12: 'grid-rows-12'
+};
 
 const colSpans: Record<number, string> = {
     1: 'col-span-1',

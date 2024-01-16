@@ -1,34 +1,37 @@
 import React, { ReactNode } from 'react'
-import { useColSpan, useColStart, useRowSpan, useRowStart } from './gridUtils'
+import { useColSpan, useColStart, useCols, useRowSpan, useRowStart, useRows } from './gridUtils'
 
 type Props = {
     children: ReactNode[] | ReactNode,
     cols?: number,
     rows?: number,
+    className?: string
 }
 
-export default function BentoGrid({children}: Props) {
+export default function BentoGrid({children, cols, rows, className}: Props) {
 
-    const defaultGridStyle = 'min-h-screen w-full h-full grid grid-cols-12 grid-rows-4 gap-6 border-2 border-black'
+    const baseGridStyle = 'grid gap-6'
   return (
-    <div className={defaultGridStyle}>
+    <div className={`${baseGridStyle} ${useCols(cols)} ${useRows(rows)} ${className} `}>
         {children}
     </div>
   )
 }
 
 type ItemProps = {
-    rowSpan: number,
-    colSpan:number,
+    rowSpan?: number,
+    colSpan?:number,
     colStart?: number,
     rowStart?:number,
+    children?: ReactNode | ReactNode[],
+    color?: string
 }
 
-export function BentoItem({colSpan, rowSpan, colStart, rowStart}: ItemProps) {
-    
+export function BentoItem({colSpan, rowSpan, colStart, rowStart, children, color}: ItemProps) {
+  const itemColor =()=> {return color ? color : 'bg-blue-500'};
   return (
-    <div className={`${useColSpan(colSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} bg-blue-500 rounded-lg`}>
-
+    <div className={`${useColSpan(colSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} ${itemColor()} rounded-lg`}>
+      {children}
     </div>
   )
 }
