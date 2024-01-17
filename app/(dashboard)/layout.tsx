@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import '../globals.css'
 import Header from '../header'
 import Footer from '../footer'
+import ImageBackground from '@/components/ImageBackground'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,10 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + ' min-h-screen'}>
-        <Header state={'default'} />
-        {children}
-        <Footer />
+      <body className={inter.className + ' h-screen'}>
+        <ImageBackground imageUrl='/mainbg.png' className='overflow-hidden' imageClassName='blur-sm scale-110' objectFit=''>
+          <Header state={'default'} />
+            {children}
+          <Footer />
+        </ImageBackground>
       </body>
     </html>
   )

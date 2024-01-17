@@ -22,11 +22,16 @@ const config: Config = {
         'screen-1/2':'calc(50vw)',
         'screen-3/4':'calc(75vw)',
         'screen-5/8':'calc(62.5vh)',
+        '10ch':'10ch'
       },
       colors: {
         'navy-blue':'#242938',
         'gray-button1':'#808080',
       },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '2.5rem',
+      }
     },
   },
   plugins: [],

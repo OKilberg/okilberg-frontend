@@ -24,13 +24,14 @@ type ItemProps = {
     colStart?: number,
     rowStart?:number,
     children?: ReactNode | ReactNode[],
-    color?: string
+    color?: string,
+    className?: string
 }
 
-export function BentoItem({colSpan, rowSpan, colStart, rowStart, children, color}: ItemProps) {
+export function BentoItem({colSpan, rowSpan, colStart, rowStart, children, color, className}: ItemProps) {
   const itemColor =()=> {return color ? color : 'bg-blue-500'};
   return (
-    <div className={`${useColSpan(colSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} ${itemColor()} rounded-lg`}>
+    <div className={`${useColSpan(colSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} ${itemColor()} ${className} rounded-5xl overflow-hidden`}>
       {children}
     </div>
   )
