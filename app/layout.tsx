@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import '../globals.css'
-import Header from '../header'
-import Footer from '../footer'
+import './globals.css'
+import Header from './header'
+import Footer from './footer'
 import ImageBackground from '@/components/ImageBackground'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,14 +13,15 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
+  children, menu
 }: {
-  children: React.ReactNode
+  children: React.ReactNode, menu: React.ReactNode
 }) {
   return (
     <html lang="en">
       <body className={inter.className + ' h-screen'}>
         <ImageBackground imageUrl='/mainbg.png' className='overflow-hidden' imageClassName='blur-sm scale-110' objectFit=''>
+          {menu}
           <Header state={'default'} />
             {children}
           <Footer />
