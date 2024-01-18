@@ -8,12 +8,12 @@ export default function Home() {
           <BentoItem colSpan={4} rowSpan={2} >
             <ImageBackground imageUrl={'/exampleImage.png'} objectFit='cover'>
               <div className='flex h-full flex-col items-end justify-between p-6'>
-                <h1 className='w-10ch font-bold text-4xl text-right text-white'>Hello! I am Oscar O. Kilberg.</h1>
+                <h1 className='w-10ch font-bold text-4xl text-right text-white'>Hi! I am Oscar O. Kilberg.</h1>
                 <h2 className='w-10ch italic font-light text-3xl text-right text-white'>Developer & Designer</h2>
               </div>
             </ImageBackground>
           </BentoItem>
-          <BentoItem color='transparent' colSpan={3} rowSpan={2}>
+          <BentoItem color='transparent min-w-[228px]' colSpan={3} rowSpan={2}>
             <ImageBackground imageUrl='/dev4.png' objectFit='cover'>
               <span className='flex h-full flex-col items-center justify-center text-white'>Developer Skills</span>
             </ImageBackground>
