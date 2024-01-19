@@ -20,5 +20,6 @@ export default function MenuButton({ state }: Props) {
         <span onClick={() => router.back()} className="cursor-pointer">
             <Cross2Icon className='text-gray-button1 h-16 w-16' />
         </span>
+        
     )
 }

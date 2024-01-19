@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Header from './header'
+import Header, { NavPage } from './header'
 import Footer from './footer'
 import ImageBackground from '@/components/ImageBackground'
 
@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className + ' h-screen'}>
         <ImageBackground imageUrl='/mainbg.png' className='overflow-hidden' imageClassName='blur-sm scale-110' objectFit=''>
           {menu}
-          <Header state={'default'} />
+          <Header navPage={<NavPage/>}/>
             {children}
           <Footer />
         </ImageBackground>
