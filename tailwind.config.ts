@@ -17,6 +17,7 @@ const config: Config = {
         'screen-1/2':'calc(50vh)',
         'screen-3/4':'calc(75vh)',
         'screen-5/8':'calc(62.5vh)',
+        'screen-3/8':'calc(37.5vh)'
       },
       width: {
         'screen-1/2':'calc(50vw)',

@@ -19,11 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + ' h-screen'}>
-        <ImageBackground imageUrl='/mainbg.png' className='overflow-hidden' imageClassName='blur-sm scale-110' objectFit=''>
+      <body className={inter.className + ''}>
+        <ImageBackground imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-sm scale-110'>
           {menu}
           <Header navPage={<NavPage/>}/>
-            {children}
+          {children}
           <Footer />
         </ImageBackground>
       </body>

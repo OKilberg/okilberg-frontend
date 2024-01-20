@@ -1,15 +1,30 @@
-export function useCols(n?: number): string {
+export function useGridStyle(cols?: number, rows?: number, colSpan?: number, rowSpan?: number, colStart?: number, rowStart?: number, mdCols?: number, mdRows?: number, lgCols?: number, lgRows?: number){
+    const styleArr = [
+        useCols(cols), 
+        useRows(rows), 
+        useColSpan(colSpan), 
+        useRowSpan(rowSpan), 
+        useColStart(colStart), 
+        useRowStart(rowStart),
+    ]
+}
+
+export function useCols(n?: number, md?: number, lg?: number): string {
     if (n && (n < 1 || n > 12)) {
         throw new Error('Input must be between 1 and 12.');
     }
-    return n ? cols[n] : 'grid-cols-12';
+    //
+    const defaultCols = n ? cols[n] : cols[12];
+    const mediumCols = md ? mdCols[md] : mdCols[n || 12]
+    const largeCols = lg ? lgCols[lg] : lgCols[n || 12]
+    return [defaultCols, mediumCols, largeCols].join(' ')
 }
 
 export function useRows(n?: number): string {
     if (n && (n < 1 || n > 12)) {
         throw new Error('Input must be between 1 and 12.');
     }
-    return n ? rows[n] : 'grid-rows-4';
+    return n ? rows[n] : ''//'grid-rows-4';
 }
 
 export function useColSpan(n?: number): string {
@@ -30,14 +45,14 @@ export function useColStart(n?: number): string {
     if (n && (n < 1 || n > 13)) {
         throw new Error('Input must be between 1 and 13.');
     }
-    return n ? colStart[n] : 'col-start-auto';
+    return n ? colStart[n] : ''//'col-start-auto';
 }
 
 export function useRowStart(n?: number): string {
     if (n && (n < 1 || n > 13)) {
         throw new Error('Input must be between 1 and 13.');
     }
-    return n ? rowStart[n] : 'row-start-auto';
+    return n ? rowStart[n] : ''//'row-start-auto';
 }
 
 const cols: Record<number, string> = {
@@ -69,6 +84,67 @@ const rows: Record<number, string> = {
     11: 'grid-rows-11',
     12: 'grid-rows-12'
 };
+
+const mdCols: Record<number, string> = {
+    1: 'md:grid-cols-1',
+    2: 'md:grid-cols-2',
+    3: 'md:grid-cols-3',
+    4: 'md:grid-cols-4',
+    5: 'md:grid-cols-5',
+    6: 'md:grid-cols-6',
+    7: 'md:grid-cols-7',
+    8: 'md:grid-cols-8',
+    9: 'md:grid-cols-9',
+    10: 'md:grid-cols-10',
+    11: 'md:grid-cols-11',
+    12: 'md:grid-cols-12'
+};
+
+const lgCols: Record<number, string> = {
+    1: 'lg:grid-cols-1',
+    2: 'lg:grid-cols-2',
+    3: 'lg:grid-cols-3',
+    4: 'lg:grid-cols-4',
+    5: 'lg:grid-cols-5',
+    6: 'lg:grid-cols-6',
+    7: 'lg:grid-cols-7',
+    8: 'lg:grid-cols-8',
+    9: 'lg:grid-cols-9',
+    10: 'lg:grid-cols-10',
+    11: 'lg:grid-cols-11',
+    12: 'lg:grid-cols-12'
+};
+
+const mdRows: Record<number, string> = {
+    1: 'md:grid-rows-1',
+    2: 'md:grid-rows-2',
+    3: 'md:grid-rows-3',
+    4: 'md:grid-rows-4',
+    5: 'md:grid-rows-5',
+    6: 'md:grid-rows-6',
+    7: 'md:grid-rows-7',
+    8: 'md:grid-rows-8',
+    9: 'md:grid-rows-9',
+    10: 'md:grid-rows-10',
+    11: 'md:grid-rows-11',
+    12: 'md:grid-rows-12'
+};
+
+const lgRows: Record<number, string> = {
+    1: 'lg:grid-rows-1',
+    2: 'lg:grid-rows-2',
+    3: 'lg:grid-rows-3',
+    4: 'lg:grid-rows-4',
+    5: 'lg:grid-rows-5',
+    6: 'lg:grid-rows-6',
+    7: 'lg:grid-rows-7',
+    8: 'lg:grid-rows-8',
+    9: 'lg:grid-rows-9',
+    10: 'lg:grid-rows-10',
+    11: 'lg:grid-rows-11',
+    12: 'lg:grid-rows-12'
+};
+
 
 const colSpans: Record<number, string> = {
     1: 'col-span-1',

@@ -17,7 +17,7 @@ export default function Header({ navPage }: Props) {
         toggleNavPage(false)
     }, [pathname])
     return (
-        <header className='flex flex-row justify-between items-center h-20 px-20 py-4'>
+        <header className='flex flex-row justify-between items-center h-20 px-10 md:px-20 py-4'>
             <div className='relative w-16 h-16'>
                 <LeftIcon state={nav} path={pathname} className='absolute z-30' />
             </div>

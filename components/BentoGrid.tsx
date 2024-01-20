@@ -5,14 +5,16 @@ type Props = {
     children: ReactNode[] | ReactNode,
     cols?: number,
     rows?: number,
-    className?: string
+    mdCols?: number,
+    lgCols?: number,
+    className?: string,
 }
 
-export default function BentoGrid({children, cols, rows, className}: Props) {
+export default function BentoGrid({children, cols, mdCols, lgCols, rows, className}: Props) {
 
     const baseGridStyle = 'grid gap-6'
   return (
-    <div className={`${baseGridStyle} ${useCols(cols)} ${useRows(rows)} ${className} `}>
+    <div className={`${baseGridStyle} ${useCols(cols, mdCols, lgCols)} ${useRows(rows)} ${className} `}>
         {children}
     </div>
   )
