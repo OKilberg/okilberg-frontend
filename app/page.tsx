@@ -1,5 +1,7 @@
 import ImageBackground from '@/components/ImageBackground'
 import BentoGrid, { BentoItem } from '@/components/BentoGrid'
+import Link from 'next/link'
+import { TextSubheading } from '@/components/Text'
 
 export default function Home() {
   return (
@@ -15,36 +17,42 @@ export default function Home() {
             </ImageBackground>
           </BentoItem>
 
-          <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2}>
+          <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden transition-all hover:border-4 border-gray-300 duration-150' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2}>
             <ImageBackground imageUrl='/dev4.png' objectFit='cover'>
-              <span className='flex h-full flex-col items-center justify-center text-white'>Developer Skills</span>
+            <Link href={'/developer'} className='flex h-full flex-col items-center justify-center text-white'>
+                <TextSubheading textStyle='font-medium' text='Developer Skills'/>
+              </Link>
             </ImageBackground>
           </BentoItem>
 
-          <BentoItem className='h-screen-3/8' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
+          <BentoItem className='h-screen-3/8 hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
             <ImageBackground imageUrl='/des4.png' objectFit='cover'>
-              <span className='flex h-full flex-col items-center justify-center text-white'>Designer Skills</span>
+              <Link href={'/designer'} className='flex h-full flex-col items-center justify-center text-white'>
+                <TextSubheading textStyle='font-medium' text='Design Skills'/>
+              </Link>
             </ImageBackground>
           </BentoItem>
 
           <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2}>
             <BentoGrid cols={2} rows={2} className='w-full h-full'>
-              <BentoItem colSpan={1} rowSpan={1} className='bg-red-300' />
-              <BentoItem colSpan={1} rowSpan={1} colStart={1} className='bg-green-300' />
-              <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className='bg-orange-300' />
+              <BentoItem colSpan={1} rowSpan={1} className='bg-red-300 hover:border-4 border-gray-300 duration-150 transition-all' />
+              <BentoItem colSpan={1} rowSpan={1} colStart={1} className='bg-green-300 hover:border-4 border-gray-300 duration-150 transition-all' />
+              <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className='bg-orange-300 hover:border-4 border-gray-300 duration-150 transition-all' />
             </BentoGrid>
           </BentoItem>
 
-          <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} rowSpan={2} >
+          <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} rowSpan={2} >
             <ImageBackground imageUrl='/qf4.png' objectFit='cover'>
-              <span className='flex h-full flex-col items-center justify-center text-white'>Designer Skills</span>
+              <Link href={'/biography'} className='flex h-full flex-col items-center justify-center text-white'>
+                <TextSubheading textStyle='font-medium' text='Biography'/>
+              </Link>
             </ImageBackground>
           </BentoItem>
 
           <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
             <BentoGrid cols={2} rows={2} className='w-full h-full'>
-              <BentoItem colSpan={2} rowSpan={1} className='bg-red-300'/>
-              <BentoItem colSpan={2} rowSpan={1} className='bg-red-300'/>
+              <BentoItem colSpan={2} rowSpan={1} className='bg-red-300 hover:border-4 border-gray-300 duration-150 transition-all'/>
+              <BentoItem colSpan={2} rowSpan={1} className='bg-red-300 hover:border-4 border-gray-300 duration-150 transition-all'/>
             </BentoGrid>
           </BentoItem>
 

@@ -42,10 +42,10 @@ function NavButton({ state, toggleNavPage, className }: NavButtonProps) {
     return (
         <div className={className}>
             {
-                state && <Cross2Icon onClick={() => toggleNavPage(!state)} className='text-gray-button1 h-16 w-16' />
+                state && <Cross2Icon onClick={() => toggleNavPage(!state)} className='text-gray-button1 h-16 w-16 hover:text-gray-300 duration-150 transition-all' />
             }
             {
-                !state && <PauseIcon onClick={() => toggleNavPage(!state)} className='text-gray-button1 h-16 w-16 rotate-90' />
+                !state && <PauseIcon onClick={() => toggleNavPage(!state)} className='text-gray-button1 h-16 w-16 rotate-90 hover:text-gray-300 duration-150 transition-all' />
             }
         </div>
     )
@@ -60,7 +60,7 @@ type HeaderBtnProps = {
 function LeftIcon({ state, path, className }: HeaderBtnProps) {
 
     if (path !== '/' && !state) return (
-        <Link href={'/'} className={'flex flex-row text-gray-button1 ' + className}>
+        <Link href={'/'} className={'flex flex-row text-gray-button1 hover:text-gray-300 duration-150 transition-all ' + className}>
             <ArrowLeftIcon className='h-12 w-12' />
             <Component2Icon className='h-12 w-12' />
         </Link>
