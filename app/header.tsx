@@ -1,6 +1,5 @@
 'use client'
 
-import { TextSubheading, TextNavLarge, TextSmall } from '@/components/Text'
 import { ArrowLeftIcon, Component2Icon, Cross2Icon, PauseIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

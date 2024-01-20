@@ -14,15 +14,15 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children, menu
+  children
 }: {
-  children: React.ReactNode, menu: React.ReactNode
+  children: React.ReactNode, 
 }) {
   return (
     <html lang="en">
       <body className={inter.className + ' overflow-hidden'}>
         <ImageBackground imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-sm scale-110' containerClassName='overflow-hidden'>
-          {menu}
+         
           <Header navPage={<NavPage/>}/>
           {children}
           <Footer />
