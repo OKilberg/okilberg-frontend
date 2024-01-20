@@ -8,9 +8,10 @@ type Props = {
   objectFit?: ObjectFit,
   className?: string,
   imageClassName?: string
+  containerClassName?: string
 }
 
-const ImageBackground = ({ imageUrl, children, objectFit, className, imageClassName }: Props) => {
+const ImageBackground = ({ imageUrl, children, objectFit, className, imageClassName, containerClassName }: Props) => {
   return (
     <div className={"relative w-full h-full " + className}>
       <Image
@@ -20,7 +21,7 @@ const ImageBackground = ({ imageUrl, children, objectFit, className, imageClassN
         alt='Background image'
         className={"absolute z-0 " + imageClassName}
       />
-      <div className="absolute top-0 left-0 w-full h-full z-10">
+      <div className={"absolute top-0 left-0 w-full h-full z-10 "+containerClassName}>
         {children}
       </div>
     </div>

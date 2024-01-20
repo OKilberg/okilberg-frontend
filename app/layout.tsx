@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Header, { NavPage } from './header'
+import Header from './header'
+import { NavPage } from '@/components/NavPage'
 import Footer from './footer'
 import ImageBackground from '@/components/ImageBackground'
 
@@ -19,8 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + ''}>
-        <ImageBackground imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-sm scale-110'>
+      <body className={inter.className + ' overflow-hidden'}>
+        <ImageBackground imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-sm scale-110' containerClassName='overflow-hidden'>
           {menu}
           <Header navPage={<NavPage/>}/>
           {children}

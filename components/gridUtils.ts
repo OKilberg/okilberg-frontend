@@ -27,11 +27,15 @@ export function useRows(n?: number): string {
     return n ? rows[n] : ''//'grid-rows-4';
 }
 
-export function useColSpan(n?: number): string {
+export function useColSpan(n?: number, md?: number, lg?: number): string {
     if (n && (n < 1 || n > 12)) {
         throw new Error('Input must be between 1 and 12.');
     }
-    return n ? colSpans[n] : 'col-auto';
+    const defaultColSpan = n ? colSpans[n] : colSpans[12];
+    const mediumColSpan = md ? mdColSpans[md] : mdColSpans[n || 12]
+    const largeColSpan = lg ? lgColSpans[lg] : lgColSpans[n || 12]
+    return [defaultColSpan, mediumColSpan, largeColSpan].join(' ')
+    //return n ? colSpans[n] : 'col-auto';
 }
 
 export function useRowSpan(n?: number): string {
@@ -159,6 +163,36 @@ const colSpans: Record<number, string> = {
     10: 'col-span-10',
     11: 'col-span-11',
     12: 'col-span-12'
+};
+
+const mdColSpans: Record<number, string> = {
+    1: 'md:col-span-1',
+    2: 'md:col-span-2',
+    3: 'md:col-span-3',
+    4: 'md:col-span-4',
+    5: 'md:col-span-5',
+    6: 'md:col-span-6',
+    7: 'md:col-span-7',
+    8: 'md:col-span-8',
+    9: 'md:col-span-9',
+    10: 'md:col-span-10',
+    11: 'md:col-span-11',
+    12: 'md:col-span-12'
+};
+
+const lgColSpans: Record<number, string> = {
+    1: 'lg:col-span-1',
+    2: 'lg:col-span-2',
+    3: 'lg:col-span-3',
+    4: 'lg:col-span-4',
+    5: 'lg:col-span-5',
+    6: 'lg:col-span-6',
+    7: 'lg:col-span-7',
+    8: 'lg:col-span-8',
+    9: 'lg:col-span-9',
+    10: 'lg:col-span-10',
+    11: 'lg:col-span-11',
+    12: 'lg:col-span-12'
 };
 
 const rowSpans: Record<number, string> = {

@@ -20,20 +20,26 @@ export default function BentoGrid({children, cols, mdCols, lgCols, rows, classNa
   )
 }
 
+type spanOptions = {
+  def: number,
+  md: number,
+  lg: number
+}
+
 type ItemProps = {
     rowSpan?: number,
     colSpan?:number,
+    mdColSpan?: number,
+    lgColSpan?: number,
     colStart?: number,
     rowStart?:number,
     children?: ReactNode | ReactNode[],
-    color?: string,
     className?: string
 }
 
-export function BentoItem({colSpan, rowSpan, colStart, rowStart, children, color, className}: ItemProps) {
-  const itemColor =()=> {return color ? color : 'bg-blue-500'};
+export function BentoItem({colSpan, mdColSpan, lgColSpan, rowSpan, colStart, rowStart, children, className}: ItemProps) {
   return (
-    <div className={`${useColSpan(colSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} ${itemColor()} ${className} rounded-5xl overflow-hidden`}>
+    <div className={`${useColSpan(colSpan, mdColSpan, lgColSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} ${className} rounded-5xl overflow-hidden`}>
       {children}
     </div>
   )

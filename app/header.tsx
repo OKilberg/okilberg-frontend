@@ -33,44 +33,13 @@ export default function Header({ navPage }: Props) {
     )
 }
 
-type NavPageProps = {}
-
-export function NavPage({ }: NavPageProps) {
-    return (
-        <nav className='absolute top-0 left-0 w-screen h-screen bg-navy-blue z-20 text-white'>
-            <div className='flex flex-row justify-between items-center h-20 px-20 py-4'>
-                <div></div>
-                <div></div>
-            </div>
-            <ul className='ml-[13%] mt-16 flex flex-col md:flex-row gap-14 md:gap-40 text-white'>
-                <div className='flex flex-col'>
-                    <NavItemLarge href='/' label='Home' />
-                </div>
-                <div className='flex flex-col gap-14'>
-                    <NavItemLarge href='/developer' label='Developer' />
-                    <NavItemLarge href='/designer' label='Designer' />
-                    <NavItemLarge href='/biography' label='Biography' />
-                    <NavItemLarge href='/contact' label='Contact' />
-                </div>
-                <div className='flex flex-col gap-12'>
-                    <NavItemSmall href='/blog' label='Blog' sublabel='LATEST POST - 2024.01.06'>
-                        <Link href={'/blog/post'}><TextSubheading text='Why design Is not the same' textStyle='underline font-light tracking-wider' /></Link>
-                    </NavItemSmall>
-                    <NavItemSmall href='/downloads' label='CV & Transcripts' sublabel='UPDATED FOR 2024' />
-                </div>
-
-            </ul>
-        </nav>
-    )
-}
-
-type NavProps = {
+type NavButtonProps = {
     state: boolean,
     toggleNavPage: Dispatch<SetStateAction<boolean>>,
     className?: string
 }
 
-function NavButton({ state, toggleNavPage, className }: NavProps) {
+function NavButton({ state, toggleNavPage, className }: NavButtonProps) {
     return (
         <div className={className}>
             {
@@ -98,34 +67,4 @@ function LeftIcon({ state, path, className }: HeaderBtnProps) {
         </Link>
     )
     else return <span></span>
-}
-
-type NavItemProps = {
-    href: string,
-    label: string,
-    sublabel?: string,
-    children?: ReactNode | ReactNode[]
-}
-
-function NavItemLarge({ href, label }: NavItemProps) {
-    return (
-        <Link href={href}>
-            <TextNavLarge text={label} noMargin textStyle='tracking-wider' />
-        </Link>
-    )
-}
-
-function NavItemSmall({ href, label, sublabel, children }: NavItemProps) {
-    return (
-        <div>
-            <Link href={href}>
-                <TextSubheading text={label} textStyle='font-medium tracking-wider' />
-            </Link>
-            {
-                sublabel && <TextSmall text={sublabel} textStyle='font-light tracking-wider' />
-            }
-            {children}
-        </div>
-
-    )
 }
