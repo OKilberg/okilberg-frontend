@@ -2,6 +2,7 @@ import ImageBackground from '@/components/ImageBackground'
 import BentoGrid, { BentoItem } from '@/components/BentoGrid'
 import Link from 'next/link'
 import { TextSubheading } from '@/components/Text'
+import ComingSoon from '@/components/ComingSoon'
 
 export default function Home() {
   return (
@@ -19,15 +20,16 @@ export default function Home() {
 
         <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden transition-all hover:border-4 border-gray-300 duration-150' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2}>
           <ImageBackground imageUrl='/dev.jpg' objectFit='cover' priority>
-            <Link href={'/developer'} className='flex h-full flex-col items-center justify-center text-gray-400 hover:text-white'>
+            <Link href={'/developer'} className='flex h-full flex-col items-center justify-center text-transparent hover:text-white'>
               <TextSubheading textStyle='font-medium' text='Developer Skills' noMargin />
             </Link>
           </ImageBackground>
         </BentoItem>
 
-        <BentoItem className='h-screen-3/8 hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
+        <BentoItem className='saturate-0 h-screen-3/8 hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
           <ImageBackground imageUrl='/des.jpg' objectFit='cover' priority>
-            <Link href={'/designer'} className='flex h-full flex-col items-center justify-center text-gray-400 hover:text-white'>
+            <Link href={'/designer'} className='flex h-full flex-col items-center justify-center text-transparent hover:text-white'>
+              <ComingSoon />
               <TextSubheading textStyle='font-medium' text='Design Skills' noMargin />
             </Link>
           </ImageBackground>
@@ -52,9 +54,10 @@ export default function Home() {
               </ImageBackground>
             </BentoItem>
 
-            <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className='bg-orange-300 hover:border-4 border-gray-300 duration-150 transition-all' >
+            <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className='saturate-0 bg-orange-300 hover:border-4 border-gray-300 duration-150 transition-all' >
               <ImageBackground imageUrl='/blog.jpg' objectFit='cover' priority>
-                <Link href={'/blog'} className='flex h-full flex-col items-center justify-center text-gray-400 hover:text-white'>
+                <Link href={'/blog'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
+                  <ComingSoon />
                   <TextSubheading textStyle='font-medium' text='Blog' noMargin />
                 </Link>
               </ImageBackground>
@@ -63,18 +66,22 @@ export default function Home() {
           </BentoGrid>
         </BentoItem>
 
-        <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} rowSpan={2} >
+        <BentoItem className='saturate-0 h-screen-3/8 rounded-5xl overflow-hidden hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} rowSpan={2} >
           <ImageBackground imageUrl='/qf4.png' objectFit='cover' priority>
-            <Link href={'/biography'} className='flex h-full flex-col items-center justify-center text-gray-300 hover:text-white'>
-              <TextSubheading textStyle='font-medium' text='Biography' noMargin />
+            <Link href={'/biography'} className='flex h-full flex-col items-center justify-center text-transparent  hover:text-white'>
+              <ComingSoon />
+              <TextSubheading textStyle='font-medium drop-shadow-md' text='Biography' noMargin />
             </Link>
           </ImageBackground>
         </BentoItem>
 
-        <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
+        <BentoItem className='saturate-0 h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
           <BentoGrid cols={2} rows={2} className='w-full h-full'>
-            <BentoItem colSpan={2} rowSpan={1} className='bg-green-300 hover:border-4 border-gray-300 duration-150 transition-all' />
-            <BentoItem colSpan={2} rowSpan={1} className='bg-red-300 hover:border-4 border-gray-300 duration-150 transition-all' />
+            <BentoItem colSpan={2} rowSpan={1} className='bg-green-300 hover:border-4 border-gray-300 duration-150 transition-all'>
+              <ComingSoon />
+            </BentoItem>
+            <BentoItem colSpan={2} rowSpan={1} className='bg-red-300 hover:border-4 border-gray-300 duration-150 transition-all'>
+            </BentoItem>
           </BentoGrid>
         </BentoItem>
 
