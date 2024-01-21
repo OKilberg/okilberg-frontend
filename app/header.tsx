@@ -17,8 +17,8 @@ export default function Header({ navPage }: Props) {
     }, [pathname])
     return (
         <header className='flex flex-row justify-between items-center h-20 px-10 md:px-20 py-4'>
-            <div className='relative w-16 h-16'>
-                <LeftIcon state={nav} path={pathname} className='absolute z-30' />
+            <div className='w-16 h-16'>
+                <LeftIcon state={nav} path={pathname} className=' w-full h-full' />
             </div>
 
             <div className='relative w-16 h-16'>
@@ -42,10 +42,10 @@ function NavButton({ state, toggleNavPage, className }: NavButtonProps) {
     return (
         <div className={className}>
             {
-                state && <Cross2Icon onClick={() => toggleNavPage(!state)} className='text-gray-button1 h-16 w-16 hover:text-gray-300 duration-150 transition-all' />
+                state && <Cross2Icon onClick={() => toggleNavPage(!state)} className='text-zinc-300 h-16 w-16 hover:text-zinc-100 duration-150 transition-all' />
             }
             {
-                !state && <PauseIcon onClick={() => toggleNavPage(!state)} className='text-gray-button1 h-16 w-16 rotate-90 hover:text-gray-300 duration-150 transition-all' />
+                !state && <PauseIcon onClick={() => toggleNavPage(!state)} className='text-zinc-300 h-16 w-16 rotate-90 hover:text-zinc-100 duration-150 transition-all' />
             }
         </div>
     )
@@ -60,9 +60,9 @@ type HeaderBtnProps = {
 function LeftIcon({ state, path, className }: HeaderBtnProps) {
 
     if (path !== '/' && !state) return (
-        <Link href={'/'} className={'flex flex-row text-gray-button1 hover:text-gray-300 duration-150 transition-all ' + className}>
-            <ArrowLeftIcon className='h-12 w-12' />
-            <Component2Icon className='h-12 w-12' />
+        <Link href={'/'} className={'flex flex-row text-zinc-300 hover:text-zinc-100 duration-150 transition-all ' + className}>
+            <ArrowLeftIcon className='h-16 w-16' />
+            <Component2Icon className='h-16 w-16' />
         </Link>
     )
     else return <span></span>

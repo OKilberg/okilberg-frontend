@@ -1,5 +1,5 @@
 import React from 'react'
-import { FontSizes, fontSizeVariants, useFontSize, useMarginBottom } from './textUtils'
+import { FontSizes, useFontSize, useMarginBottom } from './utils/textUtils'
 
 type TextProps = {
     fontSize?: FontSizes
@@ -17,7 +17,7 @@ export function TextDisplay({ text, fontSize, noMargin, textStyle }: TextProps) 
     )
 }
 
-export function TextNavLarge({ text, fontSize, noMargin, textStyle }: TextProps){
+export function TextNavLarge({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 60;
     return (
         <h1 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-trade-winds font-medium`}>

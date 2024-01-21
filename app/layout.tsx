@@ -16,14 +16,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children
 }: {
-  children: React.ReactNode, 
+  children: React.ReactNode,
 }) {
   return (
     <html lang="en">
       <body className={inter.className + ' overflow-hidden'}>
-        <ImageBackground imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-sm scale-110' containerClassName='overflow-hidden'>
-         
-          <Header navPage={<NavPage/>}/>
+        <ImageBackground imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-sm scale-110 brightness-75' containerClassName='overflow-hidden'>
+          <Header navPage={<NavPage />} />
           {children}
           <Footer />
         </ImageBackground>

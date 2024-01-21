@@ -1,6 +1,7 @@
 import { TextSubheading, TextNavLarge, TextSmall } from '@/components/Text'
 import Link from 'next/link'
-import React, {ReactNode } from 'react'
+import React, { ReactNode } from 'react'
+import PathAware from './PathAware'
 
 type NavPageProps = {}
 
@@ -11,7 +12,7 @@ export function NavPage({ }: NavPageProps) {
                 <div></div>
                 <div></div>
             </div>
-            <ul className= 'ml-6 md:ml-[13%] mt-16 flex flex-col md:flex-row gap-14 md:gap-40 text-white overflow-hidden'>
+            <ul className='ml-6 md:ml-[13%] mt-16 flex flex-col md:flex-row gap-14 md:gap-40 text-white overflow-hidden'>
                 <div className='flex flex-col'>
                     <NavItemLarge href='/' label='Home' />
                 </div>
@@ -43,7 +44,9 @@ type NavItemProps = {
 function NavItemLarge({ href, label }: NavItemProps) {
     return (
         <Link href={href}>
-            <TextNavLarge text={label} noMargin textStyle='tracking-wider' />
+            <PathAware targetPath={href} className='hover:underline' matchingStyle='text-slate-400'>
+                <TextNavLarge text={label} noMargin textStyle='tracking-wider' />
+            </PathAware>
         </Link>
     )
 }
