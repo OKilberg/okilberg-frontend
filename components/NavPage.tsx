@@ -24,7 +24,7 @@ export function NavPage({ }: NavPageProps) {
                 </div>
                 <div className='flex flex-col gap-12'>
                     <NavItemSmall href='/blog' label='Blog' sublabel='LATEST POST - 2024.01.06'>
-                        <Link href={'/blog/post'}><TextSubheading text='Why design Is not the same' textStyle='underline font-light tracking-wider' /></Link>
+                        <Link href={'/blog/post'}><TextSubheading text='Example Post' textStyle='underline font-light tracking-wider' /></Link>
                     </NavItemSmall>
                     <NavItemSmall href='/downloads' label='CV & Transcripts' sublabel='UPDATED FOR 2024' />
                 </div>

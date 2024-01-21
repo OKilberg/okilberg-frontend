@@ -32,6 +32,9 @@ const config: Config = {
       borderRadius: {
         '4xl': '2rem',
         '5xl': '2.5rem',
+      },
+      saturate: {
+        '80':'.80'
       }
     },
   },

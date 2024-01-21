@@ -8,8 +8,8 @@ export default function Home() {
     <main className="h-screen w-screen flex flex-col items-center justify-start p-4 overflow-y-auto">
       <BentoGrid cols={4} mdCols={7} lgCols={10} className='min-h-screen-3/4 w-full lg:w-screen-3/4 pb-24'>
 
-        <BentoItem className='h-screen-3/8 rounded-5xl' colSpan={4} rowSpan={2} >
-          <ImageBackground imageUrl={'/exampleImage.png'} objectFit='cover' priority>
+        <BentoItem className='h-screen-3/8 rounded-5xl bg-black bg-opacity-15' colSpan={4} rowSpan={2} >
+          <ImageBackground imageUrl={'/profile.png'} objectFit='cover' imageClassName='saturate-80' priority>
             <div className='flex h-full flex-col items-end justify-between p-6'>
               <h1 className='w-10ch font-bold text-4xl text-right text-white'>Hi! I am Oscar O. Kilberg.</h1>
               <h2 className='w-10ch italic font-light text-3xl text-right text-white'>Developer & Designer</h2>
