@@ -27,6 +27,7 @@ const config: Config = {
       },
       colors: {
         'navy-blue':'#242938',
+        'navy-blue-lighter':'#2C3244',
         'gray-button1':'#808080',
       },
       borderRadius: {
@@ -35,6 +36,9 @@ const config: Config = {
       },
       saturate: {
         '80':'.80'
+      },
+      borderWidth: {
+        '1':'1px'
       }
     },
   },
