@@ -38,7 +38,7 @@ export default function Home() {
         <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2}>
           <BentoGrid cols={2} rows={2} className='w-full h-full'>
 
-            <BentoItem colSpan={1} rowSpan={1} className='bg-red-300 hover:border-4 border-gray-300 duration-150 transition-all' >
+            <BentoItem colSpan={1} rowSpan={1} className='bg-black hover:border-4 border-gray-300 duration-150 transition-all' >
               <ImageBackground imageUrl='/github.jpg' objectFit='cover' priority>
                 <a target='_blank' referrerPolicy='no-referrer' rel='noopener' href={'https://github.com/OKilberg?tab=repositories'} className='flex h-full flex-col items-center justify-center text-gray-400 hover:text-white'>
                   <TextSubheading textStyle='font-medium' text='' noMargin />
@@ -46,7 +46,7 @@ export default function Home() {
               </ImageBackground>
             </BentoItem>
 
-            <BentoItem colSpan={1} rowSpan={1} colStart={1} className='bg-green-300 hover:border-4 border-gray-300 duration-150 transition-all' >
+            <BentoItem colSpan={1} rowSpan={1} colStart={1} className='bg-blue-500 hover:border-4 border-gray-300 duration-150 transition-all' >
               <ImageBackground imageUrl='/linkedin.jpg' objectFit='cover' priority>
                 <a target='_blank' referrerPolicy='no-referrer' rel='noopener' href={'https://www.linkedin.com/in/oscar-orava-kilberg-0588461a3/'} className='flex h-full flex-col items-center justify-center text-gray-400 hover:text-white'>
                   <TextSubheading textStyle='font-medium' text='' noMargin />
@@ -54,7 +54,7 @@ export default function Home() {
               </ImageBackground>
             </BentoItem>
 
-            <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className='saturate-0 bg-orange-300 hover:border-4 border-gray-300 duration-150 transition-all' >
+            <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className='saturate-0 bg-black hover:border-4 border-gray-300 duration-150 transition-all' >
               <ImageBackground imageUrl='/blog.jpg' objectFit='cover' priority>
                 <Link href={'/blog'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
                   <ComingSoon />
