@@ -7,7 +7,13 @@ const nextConfig = {
                 hostname: 'localhost',
                 port: '3000',
                 pathname: '**',
-            }
+            },
+            {
+                protocol: 'http',
+                hostname: 'cms.okilberg.dev',
+                pathname: '**',
+            },
+
         ]
     }
 }
