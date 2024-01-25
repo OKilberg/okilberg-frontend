@@ -9,7 +9,7 @@ const nextConfig = {
                 pathname: '**',
             },
             {
-                protocol: 'http',
+                protocol: 'https',
                 hostname: 'cms.okilberg.dev',
                 pathname: '**',
             },

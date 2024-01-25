@@ -1,6 +1,7 @@
 import { TextBody, TextHeading, TextSmall, TextSubheading } from '@/components/Text'
 import React from 'react'
 import Image from 'next/image'
+import Post from './Post'
 
 type Props = {}
 
@@ -24,25 +25,5 @@ export default async function BlogPage({}: Props) {
         {posts?.docs?.map((post: any) => <Post key={post.id} doc={post}/>)}
       </div>
     </main>
-  )
-}
-
-
-
-type PostProps = {
-  doc: any
-}
-
-async function Post({doc}: PostProps) {
-  const {id, title, createdAt, paragraph} = doc
-  return (
-    <div>
-      <TextSubheading text={title}/>
-      <TextSmall text={createdAt}/>
-      <div className='relative w-20 h-20'>
-        <Image fill src={process.env.PAYLOAD_PUBLIC_URL+doc.featuredImage.url} alt={doc.featuredImage.title}/>
-      </div>
-      <TextBody text={paragraph}/>
-    </div>
   )
 }
