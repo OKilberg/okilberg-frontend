@@ -6,7 +6,7 @@ type Props = {}
 
 async function getPosts() {
   const url = process.env.PAYLOAD_PUBLIC_URL
-  const res = await fetch(url+'/api/blog-posts/',{next: { revalidate: 1 }})
+  const res = await fetch(url+'/api/blog-posts/',{next: { revalidate: 300 }})
  
   if (!res.ok) {
     throw new Error('Failed to fetch data')
