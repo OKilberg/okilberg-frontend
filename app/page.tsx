@@ -54,10 +54,9 @@ export default function Home() {
               </ImageBackground>
             </BentoItem>
 
-            <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className='saturate-0 bg-black hover:border-4 border-gray-300 duration-150 transition-all' >
+            <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className=' bg-black hover:border-4 border-gray-300 duration-150 transition-all' >
               <ImageBackground imageUrl='/blog.jpg' objectFit='cover' priority>
                 <Link href={'/blog'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
-                  <ComingSoon />
                   <TextSubheading textStyle='font-medium' text='Blog' noMargin />
                 </Link>
               </ImageBackground>
