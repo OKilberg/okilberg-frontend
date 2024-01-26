@@ -3,14 +3,13 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-
 type PostProps = {
     doc: any
 }
 
 export default async function Post({ doc }: PostProps) {
-    const { id, title, createdAt, paragraph, featuredImage } = doc
-    const imageSrc = featuredImage ? process.env.PAYLOAD_PUBLIC_URL + featuredImage.url : '';
+    const { id, title, createdAt, paragraph, featuredImage } = doc;
+    const imageSrc = featuredImage ? `${process.env.PAYLOAD_PUBLIC_URL}${featuredImage.url}` : '';
     return (
         <article>
             <TextSubheading text={title} textStyle='font-medium' />
@@ -25,9 +24,10 @@ export default async function Post({ doc }: PostProps) {
 
 export function ListPost({ doc }: PostProps){
     const { id, title, createdAt, paragraph, featuredImage } = doc
+    const href = `blog/${id}`
     return (
         <article>
-            <Link href={'blog/'+id}>
+            <Link href={href}>
                 <TextSubheading text={title} textStyle='font-medium hover:underline' />
                 <TextSmall text={createdAt} />
             </Link>
