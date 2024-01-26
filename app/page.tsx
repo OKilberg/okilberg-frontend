@@ -2,7 +2,8 @@ import ImageBackground from '@/components/ImageBackground'
 import BentoGrid, { BentoItem } from '@/components/BentoGrid'
 import Link from 'next/link'
 import { TextSubheading } from '@/components/Text'
-import ComingSoon from '@/components/ComingSoon'
+import InfoChip from '@/components/InfoChip'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
 
 export default function Home() {
   return (
@@ -21,7 +22,9 @@ export default function Home() {
         <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden transition-all hover:border-4 border-gray-300 duration-150' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2}>
           <ImageBackground imageUrl='/dev.jpg' objectFit='cover' priority>
             <Link href={'/developer'} className='flex h-full flex-col items-center justify-center text-transparent hover:text-white'>
-              <TextSubheading textStyle='font-medium' text='Developer Skills' noMargin />
+              <InfoChip text='Development' className='bg-gray-200 text-navy-blue absolute top-2 left-6' />
+              <ArrowRightIcon className='h-16 w-16' />
+              {/*<TextSubheading textStyle='font-medium' text='Developer Skills' noMargin />*/}
             </Link>
           </ImageBackground>
         </BentoItem>
@@ -29,7 +32,7 @@ export default function Home() {
         <BentoItem className='saturate-0 h-screen-3/8 hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
           <ImageBackground imageUrl='/des.jpg' objectFit='cover' priority>
             <Link href={'/designer'} className='flex h-full flex-col items-center justify-center text-transparent hover:text-white'>
-              <ComingSoon />
+              <InfoChip text='Coming Soon' className='bg-zinc-100 text-gray-800 absolute top-2 left-6' />
               <TextSubheading textStyle='font-medium' text='Design Skills' noMargin />
             </Link>
           </ImageBackground>
@@ -57,7 +60,8 @@ export default function Home() {
             <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className=' bg-black hover:border-4 border-gray-300 duration-150 transition-all' >
               <ImageBackground imageUrl='/blog.jpg' objectFit='cover' priority>
                 <Link href={'/blog'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
-                  <TextSubheading textStyle='font-medium' text='Blog' noMargin />
+                  <InfoChip text='Blog' className='bg-gray-200 text-navy-blue absolute top-2 left-6' />
+                  <ArrowRightIcon className='h-16 w-16' />
                 </Link>
               </ImageBackground>
             </BentoItem>
@@ -68,7 +72,7 @@ export default function Home() {
         <BentoItem className='saturate-0 h-screen-3/8 rounded-5xl overflow-hidden hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} rowSpan={2} >
           <ImageBackground imageUrl='/qf4.png' objectFit='cover' priority>
             <Link href={'/biography'} className='flex h-full flex-col items-center justify-center text-transparent  hover:text-white'>
-              <ComingSoon />
+              <InfoChip text='Coming Soon' className='bg-zinc-100 text-gray-800 absolute top-2 left-6' />
               <TextSubheading textStyle='font-medium drop-shadow-md' text='Biography' noMargin />
             </Link>
           </ImageBackground>
@@ -77,7 +81,7 @@ export default function Home() {
         <BentoItem className='saturate-0 h-screen-3/8 rounded-5xl overflow-hidden' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
           <BentoGrid cols={2} rows={2} className='w-full h-full'>
             <BentoItem colSpan={2} rowSpan={1} className='bg-green-300 hover:border-4 border-gray-300 duration-150 transition-all'>
-              <ComingSoon />
+              <InfoChip text='Coming Soon' className='bg-zinc-100 text-gray-800 absolute top-2 left-6' />
             </BentoItem>
             <BentoItem colSpan={2} rowSpan={1} className='bg-red-300 hover:border-4 border-gray-300 duration-150 transition-all'>
             </BentoItem>
