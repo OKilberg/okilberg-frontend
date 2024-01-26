@@ -1,29 +1,32 @@
-import { TextBody, TextHeading, TextSmall, TextSubheading } from '@/components/Text'
+import { TextHeading } from '@/components/Text'
 import React from 'react'
-import Image from 'next/image'
-import Post from './Post'
+import { ListPost } from './Post'
 
 type Props = {}
 
 async function getPosts() {
   const url = process.env.PAYLOAD_PUBLIC_URL
-  const res = await fetch(url+'/api/blog-posts/',{next: { revalidate: 300 }})
- 
+  const res = await fetch(url + '/api/blog-posts/', { next: { revalidate: 300 } })
+
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
- 
+
   return res.json()
 }
 
-export default async function BlogPage({}: Props) {
+export default async function BlogPage({ }: Props) {
   const posts = await getPosts()
   return (
-    <main className='px-40 py-20 bg-black flex flex-col backdrop-blur-md bg-opacity-50 text-white'>
-      <TextHeading text='Blog' textStyle=''/>
-      <div className='flex flex-col gap-8'>
-        {posts?.docs?.map((post: any) => <Post key={post.id} doc={post}/>)}
-      </div>
+    <main className='bg-black flex flex-col backdrop-blur-md bg-opacity-50 text-white'>
+      <section className='w-full pl-8 md:px-40 py-10 mb-20 gap-8 md:gap-12'>
+        <header>
+          <TextHeading text='Blog' textStyle='font-bold text-white tracking-wider' />
+        </header>
+        <div className='flex flex-col gap-8'>
+          {posts?.docs?.map((post: any) => <ListPost key={post.id} doc={post} />)}
+        </div>
+      </section>
     </main>
   )
 }

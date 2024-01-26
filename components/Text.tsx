@@ -38,7 +38,7 @@ export function TextHeading({ text, fontSize, noMargin, textStyle }: TextProps) 
 export function TextSubheading({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 24;
     return (
-        <h3 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-bold font-libre-baskerville`}>
+        <h3 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-libre-baskerville`}>
             {text}
         </h3>
     )
