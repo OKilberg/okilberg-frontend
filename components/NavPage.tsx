@@ -2,10 +2,14 @@ import { TextSubheading, TextNavLarge, TextSmall } from '@/components/Text'
 import Link from 'next/link'
 import React, { ReactNode } from 'react'
 import PathAware from './PathAware'
+import { getLatestPost } from '@/services/Blog';
 
-type NavPageProps = {}
+type NavPageProps = {};
 
-export function NavPage({ }: NavPageProps) {
+export async function NavPage({ }: NavPageProps) {
+
+  const {id, title, createdAt } = await getLatestPost();
+
   return (
     <nav className='absolute top-0 left-0 w-screen h-screen pb-10 md:pb-0 overflow-y-auto bg-navy-blue z-20 text-white'>
       <div className='flex flex-row justify-between items-center h-20 px-20 py-4'>
@@ -23,8 +27,8 @@ export function NavPage({ }: NavPageProps) {
           <NavItemLarge href='/contact' label='Contact' />
         </div>
         <div className='flex flex-col gap-12'>
-          <NavItemSmall href='/blog' label='Blog' sublabel='LATEST POST - 2024.01.06'>
-            <Link href={'/blog/post'}><TextSubheading text='Example Post' textStyle='underline font-light tracking-wider' /></Link>
+          <NavItemSmall href='/blog' label='Blog' sublabel={'LATEST POST - '+createdAt.substring(0,10).replaceAll('-','.')}>
+            <Link href={`blog/${id}`}><TextSubheading text={title} textStyle='underline font-light tracking-wider' /></Link>
           </NavItemSmall>
           <NavItemSmall href='/downloads' label='CV & Transcripts' sublabel='UPDATED FOR 2024' />
         </div>

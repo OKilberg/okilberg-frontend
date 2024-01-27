@@ -13,7 +13,7 @@ export default async function Post({ doc }: PostProps) {
     return (
         <article>
             <TextSubheading text={title} textStyle='font-medium' />
-            <TextSmall text={createdAt} />
+            <TextSmall text={createdAt.substring(0,10).replaceAll('-','.')} />
             <div className='relative w-20 h-20'>
                 <Image fill src={imageSrc} alt={doc.featuredImage.title} />
             </div>
@@ -29,7 +29,7 @@ export function ListPost({ doc }: PostProps){
         <article>
             <Link href={href}>
                 <TextSubheading text={title} textStyle='font-medium hover:underline' />
-                <TextSmall text={createdAt} />
+                <TextSmall text={createdAt.substring(0,10).replaceAll('-','.')} />
             </Link>
         </article>
     )

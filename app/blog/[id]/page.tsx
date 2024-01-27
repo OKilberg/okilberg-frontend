@@ -1,21 +1,9 @@
 import React from 'react'
 import Post from '../Post'
+import { getPost } from '@/services/Blog'
 
 type Props = {
   params: { id: string }
-}
-
-async function getPost(id: string) {
-  const url = process.env.PAYLOAD_PUBLIC_URL;
-  const postsUrl = 'api/blog-posts/';
- 
-  const res = await fetch(`${url}/${postsUrl}/${id}`, { next: { revalidate: 300 } })
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  return res.json()
 }
 
 export default async function Page({ params }: Props) {

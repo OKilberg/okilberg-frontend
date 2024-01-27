@@ -21,7 +21,7 @@ export default function Home() {
 
         <BentoItem className='h-screen-3/8 rounded-5xl overflow-hidden transition-all hover:border-4 border-gray-300 duration-150' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2}>
           <ImageBackground imageUrl='/dev.jpg' objectFit='cover' priority>
-            <Link href={'/developer'} className='flex h-full flex-col items-center justify-center text-transparent hover:text-white'>
+            <Link href={'/developer'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
               <InfoChip text='Development' className='bg-gray-200 text-navy-blue absolute top-2 left-6' />
               <ArrowRightIcon className='h-16 w-16' />
               {/*<TextSubheading textStyle='font-medium' text='Developer Skills' noMargin />*/}
@@ -71,9 +71,9 @@ export default function Home() {
 
         <BentoItem className='saturate-0 h-screen-3/8 rounded-5xl overflow-hidden hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} rowSpan={2} >
           <ImageBackground imageUrl='/qf4.png' objectFit='cover' priority>
-            <Link href={'/biography'} className='flex h-full flex-col items-center justify-center text-transparent  hover:text-white'>
+            <Link href={'/biography'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
               <InfoChip text='Coming Soon' className='bg-zinc-100 text-gray-800 absolute top-2 left-6' />
-              <TextSubheading textStyle='font-medium drop-shadow-md' text='Biography' noMargin />
+              <ArrowRightIcon className='h-16 w-16' />
             </Link>
           </ImageBackground>
         </BentoItem>
