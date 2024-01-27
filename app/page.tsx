@@ -31,9 +31,9 @@ export default function Home() {
 
         <BentoItem className='saturate-0 h-screen-3/8 hover:border-4 border-gray-300 duration-150 transition-all' colSpan={4} mdColSpan={3} lgColSpan={3} rowSpan={2} >
           <ImageBackground imageUrl='/des.jpg' objectFit='cover' priority>
-            <Link href={'/designer'} className='flex h-full flex-col items-center justify-center text-transparent hover:text-white'>
+            <Link href={'/designer'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
               <InfoChip text='Coming Soon' className='bg-zinc-100 text-gray-800 absolute top-2 left-6' />
-              <TextSubheading textStyle='font-medium' text='Design Skills' noMargin />
+              <ArrowRightIcon className='h-16 w-16' />
             </Link>
           </ImageBackground>
         </BentoItem>
