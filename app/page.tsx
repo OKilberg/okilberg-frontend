@@ -13,7 +13,7 @@ export default function Home() {
         <BentoItem className='h-screen-3/8 rounded-5xl bg-black bg-opacity-15' colSpan={4} rowSpan={2} >
           <ImageBackground imageUrl={'/profile.png'} objectFit='cover' imageClassName='saturate-80' priority>
             <div className='flex h-full flex-col items-end justify-between p-6'>
-              <h1 className='w-10ch font-bold text-5xl text-right text-white font-cairo'>Hi! I'm Oscar O. Kilberg.</h1>
+              <h1 className='w-10ch font-bold text-5xl text-right text-white font-cairo'>{`Hi! I'm Oscar O. Kilberg.`}</h1>
               <h2 className='w-10ch font-assistant font-thin text-4xl text-right text-white'>Developer & Designer</h2>
             </div>
           </ImageBackground>
