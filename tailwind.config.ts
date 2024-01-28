@@ -7,6 +7,10 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      'assistant':['Assistant','sans-serif'],
+      'cairo':['Cairo','serif'],
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -29,6 +33,7 @@ const config: Config = {
         'navy-blue':'#242938',
         'navy-blue-lighter':'#2C3244',
         'gray-button1':'#808080',
+        'black-gradient':'rgba(0, 0, 0, 0.50)'
       },
       borderRadius: {
         '4xl': '2rem',

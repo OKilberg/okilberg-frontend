@@ -29,7 +29,7 @@ export function TextNavLarge({ text, fontSize, noMargin, textStyle }: TextProps)
 export function TextHeading({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 36;
     return (
-        <h2 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-yeseva-one`}>
+        <h2 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-cairo`}>
             {text}
         </h2>
     )
@@ -38,7 +38,7 @@ export function TextHeading({ text, fontSize, noMargin, textStyle }: TextProps) 
 export function TextSubheading({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 24;
     return (
-        <h3 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-libre-baskerville`}>
+        <h3 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-assistant`}>
             {text}
         </h3>
     )
@@ -47,7 +47,7 @@ export function TextSubheading({ text, fontSize, noMargin, textStyle }: TextProp
 export function TextBody({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 16;
     return (
-        <p className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-libre-baskerville`}>
+        <p className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-assistant`}>
             {text}
         </p>
     )
@@ -56,7 +56,7 @@ export function TextBody({ text, fontSize, noMargin, textStyle }: TextProps) {
 export function TextButton({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 16;
     return (
-        <p className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-reem-kufi`}>
+        <p className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-assistant`}>
             {text}
         </p>
     )

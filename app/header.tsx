@@ -16,11 +16,11 @@ export default function Header({ navPage }: Props) {
         toggleNavPage(false)
     }, [pathname])
     return (
-        <header className='flex flex-row justify-between items-center h-20 px-10 md:px-20 py-4'>
+        <header className='flex flex-row justify-between items-center h-20 px-3 md:px-20 py-4'>
             <div className='w-16 h-16'>
                 <LeftIcon state={nav} path={pathname} className=' w-full h-full' />
             </div>
-
+            <p className='italic text-white text-opacity-50 text-sm md:text-base'>*Website Under Construction*</p>
             <div className='relative w-16 h-16'>
                 <NavButton state={nav} className='cursor-pointer right-0 w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute z-30' toggleNavPage={toggleNavPage} />
             </div>
