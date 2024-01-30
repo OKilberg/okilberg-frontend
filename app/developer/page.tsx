@@ -6,12 +6,9 @@ import { FaVuejs } from "react-icons/fa";
 import Link from 'next/link';
 import SearchAware from '@/components/SearchAware';
 
-type Props = {
-  searchParams: any,
-  skill: string
-}
 
-export default function DeveloperPage({ }: Props) {
+
+export default function DeveloperPage() {
   return (
     <header className='flex flex-col gap-10'>
       <TextTitle text='Development Skills' textStyle='font-bold text-white tracking-wider' noMargin />
