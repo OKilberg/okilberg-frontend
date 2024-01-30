@@ -1,5 +1,5 @@
 import { TextSubheading, TextTitle } from '@/components/Text'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, Suspense } from 'react'
 import { FaReact } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
 import { FaVuejs } from "react-icons/fa";
@@ -62,11 +62,14 @@ type SkillButtonProps = {
 function SkillButton({ searchKey, searchValue, active = false, children }: SkillButtonProps) {
 
   return (
-    <SearchAware targetSearchKey={searchKey} targetSearchValue={searchValue} matchingStyle='bg-dark-button bg-opacity-75 text-white outline outline-1 outline-gray-stroke rounded-full' className='bg-dark-button-2 bg-opacity-50 text-gray-stroke rounded-full'>
-      <Link href={'?skill=' + searchValue} className='flex items-center gap-2 py-1 px-4 font-cairo rounded-full font-medium tracking-wider text-lg'>
-        {children}
-      </Link>
-    </SearchAware>
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchAware targetSearchKey={searchKey} targetSearchValue={searchValue} matchingStyle='bg-dark-button bg-opacity-75 text-white outline outline-1 outline-gray-stroke rounded-full' className='bg-dark-button-2 bg-opacity-50 text-gray-stroke rounded-full'>
+        <Link href={'?skill=' + searchValue} className='flex items-center gap-2 py-1 px-4 font-cairo rounded-full font-medium tracking-wider text-lg'>
+          {children}
+        </Link>
+      </SearchAware>
+    </Suspense>
+    
   )
 
 }
