@@ -1,13 +1,7 @@
 import BentoGrid, { BentoItem } from '@/components/BentoGrid'
 import React, { ReactNode } from 'react'
 
-type Props = {
-    children: React.ReactNode,
-    searchParams: any,
-    skill: ReactNode,
-}
-
-export default function Layout({children, skill }: Props) {
+export default function Layout({children, skill}: {children: ReactNode, skill: ReactNode}) {
     return (
       <main className='flex flex-col text-white h-screen'>
         <BentoGrid cols={5} mdCols={12} lgCols={12} className='w-full min-h-fit h-screen overflow-y-auto' gap='gap-0'>
