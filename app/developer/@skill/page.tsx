@@ -1,4 +1,5 @@
 import { TextBody, TextTitle } from '@/components/Text'
+import { getSkill } from '@/services/Skills'
 import React from 'react'
 import { FaReact } from 'react-icons/fa'
 
@@ -6,18 +7,13 @@ type Props = {
     title: string,
     caption: string,
     type: string,
-    params: any
+    params: any,
+    searchParams: any
 }
 
-const skill: Props = {
-    title: "React",
-    caption: "React let’s me build reusable & interactive components fast",
-    type: "Library",
-}
-
-export default async function Skill({ }: Props) {
-    //const skill = params.skill;
-    const { title, caption, type } = skill;
+export default async function Skill({ searchParams }: Props) {
+    const { skill } = searchParams
+    const { title, caption, type } = await getSkill(skill)
     return (
         <article className='min-h-fit flex flex-col text-black py-10 px-12'>
             <div className='flex flex-col gap-3 h-fit'>
