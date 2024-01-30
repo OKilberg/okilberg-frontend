@@ -7,7 +7,7 @@ type Props = {
     skill: ReactNode,
 }
 
-export default function Layout({children, searchParams, skill }: Props) {
+export default function Layout({children, skill }: Props) {
     return (
       <main className='flex flex-col text-white h-screen'>
         <BentoGrid cols={5} mdCols={12} lgCols={12} className='w-full min-h-fit h-screen overflow-y-auto' gap='gap-0'>

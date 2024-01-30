@@ -7,7 +7,7 @@ type SkillProps = {
     searchParams: any
 }
 
-export default async function Skill({ searchParams }: SkillProps) {
+export async function Skill({ searchParams }: SkillProps) {
     const { skill } = searchParams
     const { title, caption, type } = await getSkill(skill)
     return (
