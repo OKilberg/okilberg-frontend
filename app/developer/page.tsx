@@ -67,7 +67,6 @@ function SkillButton({ searchKey, searchValue, active = false, children }: Skill
         {children}
       </Link>
     </SearchAware>
-    
   )
 
 }

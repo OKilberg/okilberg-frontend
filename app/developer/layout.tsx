@@ -1,5 +1,5 @@
 import BentoGrid, { BentoItem } from '@/components/BentoGrid'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, Suspense } from 'react'
 
 export default function Layout({children, skill}: {children: ReactNode, skill: ReactNode}) {
     return (
@@ -10,7 +10,9 @@ export default function Layout({children, skill}: {children: ReactNode, skill: R
             {children}
           </BentoItem>
           <BentoItem colSpan={5} className='bg-white min-h-[500px] md:h-4/5' rounding='rounded-4xl md:rounded-8xl' overflow>
-            {skill}
+            <Suspense fallback={<div>Loading...</div>}>
+              {skill}
+            </Suspense>
           </BentoItem>
         </BentoGrid>
       </main>
