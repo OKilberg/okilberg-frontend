@@ -1,13 +1,7 @@
 import BentoGrid, { BentoItem } from '@/components/BentoGrid'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, Suspense } from 'react'
 
-type Props = {
-    children: React.ReactNode,
-    searchParams: any,
-    skill: ReactNode,
-}
-
-export default function Layout({children, searchParams, skill }: Props) {
+export default function Layout({children, skill}: {children: ReactNode, skill: ReactNode}) {
     return (
       <main className='flex flex-col text-white h-screen'>
         <BentoGrid cols={5} mdCols={12} lgCols={12} className='w-full min-h-fit h-screen overflow-y-auto' gap='gap-0'>
@@ -16,7 +10,9 @@ export default function Layout({children, searchParams, skill }: Props) {
             {children}
           </BentoItem>
           <BentoItem colSpan={5} className='bg-white min-h-[500px] md:h-4/5' rounding='rounded-4xl md:rounded-8xl' overflow>
-            {skill}
+            <Suspense fallback={<div>Loading...</div>}>
+              {skill}
+            </Suspense>
           </BentoItem>
         </BentoGrid>
       </main>

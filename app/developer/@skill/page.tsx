@@ -2,16 +2,9 @@ import { TextBody, TextTitle } from '@/components/Text'
 import { getSkill } from '@/services/Skills'
 import React from 'react'
 import { FaReact } from 'react-icons/fa'
+//import { ReadonlyURLSearchParams } from 'next/navigation'
 
-type Props = {
-    title: string,
-    caption: string,
-    type: string,
-    params: any,
-    searchParams: any
-}
-
-export default async function Skill({ searchParams }: Props) {
+export default async function Skill({ searchParams }: {searchParams: any}) {
     const { skill } = searchParams
     const { title, caption, type } = await getSkill(skill)
     return (
