@@ -9,15 +9,17 @@ type Props = {
   mdCols?: number,
   lgCols?: number,
   className?: string,
+  gap?: string
 }
 
-export default function BentoGrid({ children, cols, mdCols, lgCols, rows, className }: Props) {
+export default function BentoGrid({ children, cols, mdCols, lgCols, rows, className, gap }: Props) {
 
-  const baseGridStyle = 'grid gap-6'
+  const gapstyle = gap ? gap : 'gap-6'
+
   return (
-    <div className={`${baseGridStyle} ${useCols(cols, mdCols, lgCols)} ${useRows(rows)} ${className} `}>
+    <section className={`grid ${gapstyle} ${useCols(cols, mdCols, lgCols)} ${useRows(rows)} ${className} `}>
       {children}
-    </div>
+    </section>
   )
 }
 
@@ -35,12 +37,16 @@ type ItemProps = {
   colStart?: number,
   rowStart?: number,
   children?: ReactNode | ReactNode[],
-  className?: string
+  className?: string,
+  overflow?: boolean,
+  rounding?: string
 }
 
-export function BentoItem({ colSpan, mdColSpan, lgColSpan, rowSpan, colStart, rowStart, children, className }: ItemProps) {
+export function BentoItem({ colSpan, mdColSpan, lgColSpan, rowSpan, colStart, rowStart, children, className, overflow = false, rounding }: ItemProps) {
+  const overflowStyle = !overflow ? 'overflow-hidden':'overflow-auto';
+  const roundingStyle = rounding ? rounding : 'rounded-5xl';
   return (
-    <div className={`${useColSpan(colSpan, mdColSpan, lgColSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} ${className} rounded-5xl overflow-hidden`}>
+    <div className={`${useColSpan(colSpan, mdColSpan, lgColSpan)} ${useRowSpan(rowSpan)} ${useColStart(colStart)} ${useRowStart(rowStart)} ${className} ${overflowStyle} ${roundingStyle} `}>
       {children}
     </div>
   )

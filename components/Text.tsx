@@ -35,8 +35,27 @@ export function TextHeading({ text, fontSize, noMargin, textStyle }: TextProps) 
     )
 }
 
+export function TextTitle({ text, fontSize, noMargin, textStyle }: TextProps) {
+    const defaultFontSize = 30;
+    return (
+        <h2 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-cairo`}>
+            {text}
+        </h2>
+    )
+}
+
+
 export function TextSubheading({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 24;
+    return (
+        <h3 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-assistant`}>
+            {text}
+        </h3>
+    )
+}
+
+export function TextSubsubheading({ text, fontSize, noMargin, textStyle }: TextProps) {
+    const defaultFontSize = 20;
     return (
         <h3 className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-assistant`}>
             {text}

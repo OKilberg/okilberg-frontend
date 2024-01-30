@@ -1,61 +1,99 @@
-import { TextHeading, TextSmall, TextSubheading } from '@/components/Text'
+import BentoGrid, { BentoItem } from '@/components/BentoGrid'
+import { TextBody, TextHeading, TextSmall, TextSubheading, TextSubsubheading, TextTitle } from '@/components/Text'
 import { Table, TableHead, TableRow, TableHeaderItem, TableBody, TableItem } from '@/components/table/Table'
 import React, { ReactNode } from 'react'
+import { FaReact } from "react-icons/fa";
+import { SiNextdotjs } from "react-icons/si";
+import { FaVuejs } from "react-icons/fa";
+
 
 type Props = {}
 
 export default function DeveloperPage({ }: Props) {
   return (
-    <main className='bg-black flex flex-col backdrop-blur-md bg-opacity-50 text-white overflow-auto'>
-      <section className='w-full pl-8 md:px-40 py-10 mb-20 gap-8 md:gap-12'>
-        <header>
-          <TextHeading text='Developer Skills' textStyle='font-bold text-white tracking-wider' />
-          <TextSmall text='UPDATED FOR 2024' fontSize={18} textStyle='text-white font-light tracking-wider' />
-        </header>
-        <article className='mt-10'>
-          <TextSubheading text='Libraries & Frameworks' textStyle='text-white font-medium' />
-          <div className='overflow-x-auto'>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableHeaderItem content='Name' />
-                  <TableHeaderItem content='Type' />
-                  <TableHeaderItem content='Description' />
-                  <TableHeaderItem content='Level' />
-                  <TableHeaderItem content='Exp (yrs)' />
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableItem content='React' dataLabel='Name' />
-                  <TableItem content='Javascript Library' dataLabel='Type' />
-                  <TableItem content='Javascript Library for web and native user interfaces.' dataLabel='Description' />
-                  <TableItem content='Mid-Level' dataLabel='Level' />
-                  <TableItem content='4' dataLabel='Experience' />
-                </TableRow>
-                <TableRow className='bg-zinc-900 bg-opacity-50'>
-                  <TableItem content='Next.js' />
-                  <TableItem content='Fullstack React Framework' />
-                  <TableItem content='' />
-                  <TableItem content='Entry-Level II' />
-                  <TableItem content='2' />
-                </TableRow>
-                <TableRow>
-                  <TableItem content='Vue' />
-                  <TableItem content='Javascript Framework' />
-                  <TableItem content='' />
-                  <TableItem content='Entry-Level I' />
-                  <TableItem content='<1' />
-                </TableRow>
-              </TableBody>
-            </Table>
-          </div>
-        </article>
-        <div className='text-zinc-500'>More Coming Soon...</div>
-      </section>
+    <main className='flex flex-col text-white h-screen'>
+      <BentoGrid cols={5} mdCols={12} lgCols={12} className='w-full min-h-fit h-screen overflow-y-auto' gap='gap-0'>
+        <BentoItem colSpan={1} className='hidden md:block'/>
+        <BentoItem colSpan={5} className='h-fit md:h-4/5 p-2 py-10 min-h-[500px]' rounding='rounded-0' overflow>
+          <header className='flex flex-col gap-10'>
+            <TextTitle text='Development Skills' textStyle='font-bold text-white tracking-wider' noMargin />
+            <div>
+              <TextSubheading text='Libraries & Frameworks' textStyle='tracking-wider text-gray-title' />
+              <ul className='flex gap-3'>
+                <SkillButton active>
+                  <FaReact />
+                  React
+                </SkillButton>
+                <SkillButton>
+                  <SiNextdotjs />
+                  Next.js
+                </SkillButton>
+                <SkillButton>
+                  <FaVuejs />
+                  Vue
+                </SkillButton>
+              </ul>
+
+            </div>
+            <div>
+              <TextSubheading text='Programming Languages' textStyle='tracking-wider text-gray-title' />
+              <ul>
+              </ul>
+            </div>
+
+            <div>
+              <TextSubheading text='Tools' textStyle='tracking-wider text-gray-title' />
+              <ul>
+              </ul>
+            </div>
+
+            <div>
+              <TextSubheading text='Processes' textStyle='tracking-wider text-gray-title' />
+              <ul></ul>
+            </div>
+
+          </header>
+        </BentoItem>
+        <BentoItem colSpan={5} className='bg-white min-h-[500px] md:h-4/5' rounding='rounded-4xl md:rounded-8xl' overflow>
+          <article className='min-h-fit flex flex-col text-black py-10 px-12'>
+            <div className='flex flex-col gap-3 h-fit'>
+            <TextBody text={`“React let’s me build reusable & interactive components fast”`} textStyle='font-light' />
+            <div className='flex justify-between'>
+              <div className='flex flex-col gap-2'>
+                <TextTitle text='React' noMargin textStyle='tracking-wider' />
+                <TextBody text='Library' textStyle='tracking-wider' fontSize={16} />
+              </div>
+              <FaReact className='text-5xl' />
+            </div>
+
+            </div>
+            
+
+          </article>
+        </BentoItem>
+
+      </BentoGrid>
     </main>
   )
 }
 
 
+type SkillButtonProps = {
+  active?: boolean,
+  children: ReactNode | ReactNode[]
+}
+
+function SkillButton({ active = false, children }: SkillButtonProps) {
+
+  if (active) return (
+    <button className='flex items-center gap-2 bg-dark-button bg-opacity-75 rounded-full py-1 px-4 text-white font-cairo font-medium outline outline-1 outline-gray-stroke tracking-wider text-lg'>
+      {children}
+    </button>
+  )
+  else return (
+    <button className='flex items-center gap-2 bg-dark-button-2 bg-opacity-50 rounded-full py-1 px-4 text-gray-stroke font-cairo font-medium tracking-wider text-lg'>
+      {children}
+    </button>
+  )
+}
 

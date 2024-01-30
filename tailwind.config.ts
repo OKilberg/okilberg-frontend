@@ -33,17 +33,27 @@ const config: Config = {
         'navy-blue':'#242938',
         'navy-blue-lighter':'#2C3244',
         'gray-button1':'#808080',
-        'black-gradient':'rgba(0, 0, 0, 0.50)'
+        'black-gradient':'rgba(0, 0, 0, 0.50)',
+        'gray-title':'#D9D9D9',
+        'dark-button':'#262626',
+        'dark-button-2':'#3F3F3F',
+        'gray-stroke':'#BFBFBF',
       },
       borderRadius: {
         '4xl': '2rem',
         '5xl': '2.5rem',
+        '6xl': '3rem',
+        '7xl': '3.5rem',
+        '8xl': '4rem',
       },
       saturate: {
         '80':'.80'
       },
       borderWidth: {
         '1':'1px'
+      },
+      blur: {
+        'xs':'2px'
       }
     },
   },

@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + ' overflow-hidden'}>
-        <ImageBackground priority imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-sm scale-110 brightness-75' containerClassName='overflow-hidden'>
+        <ImageBackground priority imageUrl='/mainbg.png' className='h-screen bg-fixed w-screen overflow-hidden' imageClassName='bg-fixed blur-xs scale-110 brightness-75' containerClassName='overflow-hidden'>
           <Header navPage={<NavPage />} />
           {children}
           <Footer />
