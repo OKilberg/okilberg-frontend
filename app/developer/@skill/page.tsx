@@ -4,11 +4,7 @@ import React from 'react'
 import { FaReact } from 'react-icons/fa'
 //import { ReadonlyURLSearchParams } from 'next/navigation'
 
-type SkillProps = {
-    searchParams: ReadonlyURLSearchParams
-}
-
-export default async function Skill({ searchParams }: SkillProps) {
+export default async function Skill({ searchParams }: {searchParams: any}) {
     const { skill } = searchParams
     const { title, caption, type } = await getSkill(skill)
     return (
