@@ -3,6 +3,15 @@ import React, { ReactNode, Suspense } from 'react'
 import { FaReact } from "react-icons/fa";
 import { SiNextdotjs } from "react-icons/si";
 import { FaVuejs } from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
+import { IoLogoCss3 } from "react-icons/io5";
+import { FaJava } from "react-icons/fa";
+import { SiCsharp } from "react-icons/si";
+import { FaGitAlt } from "react-icons/fa";
+import { FaHtml5 } from "react-icons/fa";
+import { FaChrome } from "react-icons/fa";
+
+
 import Link from 'next/link';
 import SearchAware from '@/components/SearchAware';
 
@@ -14,7 +23,7 @@ export default function DeveloperPage() {
       <TextTitle text='Development Skills' textStyle='font-bold text-white tracking-wider' noMargin />
       <div>
         <TextSubheading text='Libraries & Frameworks' textStyle='tracking-wider text-gray-title' />
-        <ul className='flex gap-3'>
+        <ul className='flex gap-3 flex-wrap'>
           <SkillButton searchKey='skill' searchValue='react' active>
             <FaReact />
             React
@@ -28,23 +37,56 @@ export default function DeveloperPage() {
             Vue
           </SkillButton>
         </ul>
-
       </div>
       <div>
         <TextSubheading text='Programming Languages' textStyle='tracking-wider text-gray-title' />
-        <ul>
+        <ul className='flex gap-3 flex-wrap'>
+          <SkillButton searchKey='skill' searchValue='typescript'>
+            <SiTypescript />
+            TypeScript
+          </SkillButton>
+          <SkillButton searchKey='skill' searchValue='placeholder'>
+            <IoLogoCss3 />
+            CSS
+          </SkillButton>
+          <SkillButton searchKey='skill' searchValue='placeholder'>
+            <FaJava />
+            Java
+          </SkillButton>
+          <SkillButton searchKey='skill' searchValue='placeholder'>
+            <SiCsharp />
+            C#
+          </SkillButton>
         </ul>
       </div>
 
-      <div>
+      <div className=''>
         <TextSubheading text='Tools' textStyle='tracking-wider text-gray-title' />
-        <ul>
+        <ul className='flex gap-3'>
+          <SkillButton searchKey='skill' searchValue='placeholder'>
+            <FaGitAlt />
+            Git
+          </SkillButton>
+          <SkillButton searchKey='skill' searchValue='placeholder'>
+            <FaChrome />
+            DevTools
+          </SkillButton>
         </ul>
       </div>
 
       <div>
-        <TextSubheading text='Processes' textStyle='tracking-wider text-gray-title' />
-        <ul></ul>
+        <TextSubheading text='Principles' textStyle='tracking-wider text-gray-title' />
+        <ul className='flex gap-3'>
+          <SkillButton searchKey='skill' searchValue='placeholder'>
+            <FaGitAlt />
+            Agile
+          </SkillButton>
+          <SkillButton searchKey='skill' searchValue='placeholder'>
+            <FaHtml5 />
+            Semantic HTML
+          </SkillButton>
+
+        </ul>
       </div>
 
     </header>
@@ -59,7 +101,7 @@ type SkillButtonProps = {
   children: ReactNode | ReactNode[]
 }
 
-function SkillButton({ searchKey, searchValue, active = false, children }: SkillButtonProps) {
+function SkillButton({ searchKey, searchValue, children }: SkillButtonProps) {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -69,7 +111,7 @@ function SkillButton({ searchKey, searchValue, active = false, children }: Skill
         </Link>
       </SearchAware>
     </Suspense>
-    
+
   )
 
 }

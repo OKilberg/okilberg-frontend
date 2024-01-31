@@ -1,9 +1,12 @@
 'use client'
 
-import { ArrowLeftIcon, Component2Icon, Cross2Icon, PauseIcon } from '@radix-ui/react-icons'
+import { ArrowLeftIcon, Component2Icon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
+import { HiOutlineBars2 } from "react-icons/hi2";
+import { HiOutlineXMark } from "react-icons/hi2";
+
 
 type Props = {
     navPage: ReactNode
@@ -42,10 +45,10 @@ function NavButton({ state, toggleNavPage, className }: NavButtonProps) {
     return (
         <div className={className}>
             {
-                state && <Cross2Icon onClick={() => toggleNavPage(!state)} className='text-zinc-300 h-16 w-16 hover:text-zinc-100 duration-150 transition-all' />
+                state && <HiOutlineXMark onClick={() => toggleNavPage(!state)} className='text-zinc-300 h-16 w-16 hover:text-zinc-100 duration-150 transition-all' />
             }
             {
-                !state && <PauseIcon onClick={() => toggleNavPage(!state)} className='text-zinc-300 h-16 w-16 rotate-90 hover:text-zinc-100 duration-150 transition-all' />
+                !state && <HiOutlineBars2 onClick={() => toggleNavPage(!state)} className='text-zinc-300 h-16 w-16 hover:text-zinc-100 duration-150 transition-all' />
             }
         </div>
     )
