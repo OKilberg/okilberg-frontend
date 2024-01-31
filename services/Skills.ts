@@ -8,7 +8,7 @@ export async function getSkill(id: string) {
         {
             next:
             {
-                revalidate: 1
+                revalidate: 300
             }
         }
     )
