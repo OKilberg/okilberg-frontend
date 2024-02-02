@@ -1,19 +1,14 @@
-import SmartForm, { SmartInput, exampleSchema } from '@/components/SmartForm'
-import SmartFormWrapper from '@/components/SmartFormWrapper'
+import { TextTitle } from '@/components/Text'
+import SmartFormWrapper from '@/components/forms/SmartFormWrapper'
 import React from 'react'
-import { z } from 'zod'
 
 type Props = {}
 
-
-
-export default async function page({}: Props) {
-
-    
-
+export default function Contact({ }: Props) {
   return (
-    <div className='flex flex-col text-white h-screen'>
-        <SmartFormWrapper/>
+    <div className='flex flex-col items-center text-white h-screen'>
+      <TextTitle text='Contact Form' textStyle='font-bold text-white tracking-wider' noMargin />
+      <SmartFormWrapper />
     </div>
   )
 }
