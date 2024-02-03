@@ -3,24 +3,11 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { ZodError, ZodType } from 'zod'
 
-type Props = {
-  children: ReactNode[],
-  action: () => void,
-}
-
-export default function SmartForm({ children, action }: Props) {
-  return (
-    <form action={action}>
-      {children}
-    </form>
-  )
-}
-
 type SmartInputProps = {
   type: string,
   inputShape: ZodType,
-  label?: string,
-  labelStyle?: string,
+  children?: ReactNode,
+  name: string,
   containerStyle?: string,
   className?: string,
   defaultStyle?: string
@@ -32,7 +19,7 @@ type SmartInputProps = {
 
 type Result = { success: boolean, data: object } | { success: boolean, error: ZodError }
 
-export function SmartInput({ type, inputShape, label, labelStyle, containerStyle, className, defaultStyle, validStyle, invalidStyle, messageStyle, placeholder }: SmartInputProps) {
+export function SmartInput({ type, inputShape, children, name, containerStyle, className, defaultStyle, validStyle, invalidStyle, messageStyle, placeholder }: SmartInputProps) {
   const [input, setInput] = useState<string | number | null>(null)
   const [result, setResult] = useState<Result>(inputShape.safeParse(input))
 
@@ -64,16 +51,18 @@ export function SmartInput({ type, inputShape, label, labelStyle, containerStyle
 
   return (
     <div className={containerStyle}>
-      <label className={labelStyle}>{label}</label>
+      {children}
       {
         type === 'textarea' ?
           <textarea
+            name={name}
             className={`${className} ${inputStyle()}`}
             onChange={handleInputChange}
             placeholder={placeholder}>
           </textarea>
           :
           <input
+            name={name}
             type={type}
             className={`${className} ${inputStyle()}`}
             onChange={handleInputChange}

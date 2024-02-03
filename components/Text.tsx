@@ -86,7 +86,7 @@ export function TextButton({ text, fontSize, noMargin, textStyle }: TextProps) {
 export function TextSmall({ text, fontSize, noMargin, textStyle }: TextProps) {
     const defaultFontSize = 12;
     return (
-        <small className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-reem-kufi`}>
+        <small className={`${useFontSize(fontSize, defaultFontSize)} ${useMarginBottom(fontSize, defaultFontSize, noMargin)} ${textStyle} font-assistant`}>
             {text}
         </small>
     )
