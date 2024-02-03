@@ -1,14 +1,12 @@
 import { TextSubheading, TextNavLarge, TextSmall } from '@/components/Text'
 import Link from 'next/link'
-import React, { ReactNode } from 'react'
+import React, { ReactNode, Suspense } from 'react'
 import PathAware from './PathAware'
-import { getLatestPost } from '@/services/Blog';
+import BlogButton from './BlogButton';
 
 type NavPageProps = {};
 
 export async function NavPage({ }: NavPageProps) {
-
-  const {id, title, createdAt } = await getLatestPost();
 
   return (
     <nav className='absolute top-0 left-0 w-screen h-screen pb-10 md:pb-0 overflow-y-auto bg-navy-blue z-20 text-white'>
@@ -27,12 +25,14 @@ export async function NavPage({ }: NavPageProps) {
           <NavItemLarge href='/contact' label='Contact' />
         </div>
         <div className='flex flex-col gap-12'>
-          <NavItemSmall href='/blog' label='Blog' sublabel={'LATEST POST - '+createdAt.substring(0,10).replaceAll('-','.')}>
-            <Link href={`blog/${id}`}><TextSubheading text={title} textStyle='underline font-light tracking-wider' /></Link>
-          </NavItemSmall>
+          <Suspense fallback={
+            <NavItemSmall href='/blog' label='Blog' sublabel={'LATEST POST - '}>
+              <TextSubheading text={'Loading...'} textStyle='underline font-light tracking-wider' />
+            </NavItemSmall>}>
+            <BlogButton />
+          </Suspense>
           <NavItemSmall href='/downloads' label='CV & Transcripts' sublabel='UPDATED FOR 2024' />
         </div>
-
       </ul>
     </nav>
   )
@@ -55,7 +55,7 @@ function NavItemLarge({ href, label }: NavItemProps) {
   )
 }
 
-function NavItemSmall({ href, label, sublabel, children }: NavItemProps) {
+export function NavItemSmall({ href, label, sublabel, children }: NavItemProps) {
   return (
     <div>
       <Link href={href}>
