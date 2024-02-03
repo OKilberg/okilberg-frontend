@@ -36,7 +36,7 @@ export default function SmartFormWrapper({ }: Props) {
         name='name'
         placeholder='e.g., John Doe'
         inputShape={ContactSchema.shape.name}
-        containerStyle='flex flex-col gap-1 w-1/3 '
+        containerStyle='flex flex-col gap-1 w-2/3 md:w-1/3 '
         className='text-black rounded border focus:outline h-8'
         defaultStyle='text-blue-400 border-blue-400 focus:ring-blue-400 focus:outline-blue-400'
         validStyle='text-green-600 border-green-400 focus:ring-green-400  focus:outline-green-400'
@@ -50,7 +50,7 @@ export default function SmartFormWrapper({ }: Props) {
         name='email'
         placeholder='e.g., johndoe@gmail.com'
         inputShape={ContactSchema.shape.email}
-        containerStyle='flex flex-col gap-1 w-1/3 '
+        containerStyle='flex flex-col gap-1 w-2/3 md:w-1/3 '
         className='text-black rounded border focus:outline h-8'
         defaultStyle='text-blue-400 border-blue-400 focus:ring-blue-400 focus:outline-blue-400'
         validStyle='text-green-600 border-green-400 focus:ring-green-400  focus:outline-green-400'
@@ -62,7 +62,7 @@ export default function SmartFormWrapper({ }: Props) {
         name='message'
         placeholder='Enter Message Here...'
         inputShape={ContactSchema.shape.message}
-        containerStyle='flex flex-col gap-1 w-1/3 h-[200px]'
+        containerStyle='flex flex-col gap-1 w-2/3 md:w-1/3 h-[200px]'
         className='text-black rounded border focus:outline h-full'
         defaultStyle='text-blue-400 border-blue-400 focus:ring-blue-400 focus:outline-blue-400'
         validStyle='text-green-600 border-green-400 focus:ring-green-400  focus:outline-green-400'

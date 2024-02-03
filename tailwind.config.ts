@@ -12,6 +12,9 @@ const config: Config = {
       'cairo':['Cairo','serif'],
     },
     extend: {
+      aspectRatio: {
+        '21/9':'21 / 9',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
