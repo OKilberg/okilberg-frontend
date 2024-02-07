@@ -3,6 +3,9 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Code from '../../components/Code'
+import ImageBackground from '@/components/ImageBackground'
+import { HiOutlineChevronLeft } from "react-icons/hi2";
+
 
 type PostProps = {
     doc: any
@@ -10,34 +13,53 @@ type PostProps = {
 
 export default async function Post({ doc }: PostProps) {
     const { id, title, createdAt, featuredImage, content } = doc;
-    const imageSrc = featuredImage ? `${process.env.PAYLOAD_PUBLIC_URL}${featuredImage.url}` : '';
+    const imageSrc = featuredImage ? imagePayloadUrl(featuredImage.url) : ''
     const creationDate = createdAt.substring(0, 10).replaceAll('-', '.')
     return (
-        <article>
-            <TextHeading text={title} textStyle='font-bold tracking-wider' noMargin />
-            <TextSubsubheading text={`${creationDate}`} textStyle='font-light tracking-wider uppercase' />
-            <PostImage src={imageSrc} alt={doc.featuredImage?.title} />
-            <ContentPost content={content} />
+        <article className='h-full w-full'>
+            <div className='w-full h-[250px] '>
+                <ImageBackground imageUrl={imageSrc} objectFit='cover' containerClassName='w-full h-full flex justify-center items-center'>
+                    <TextHeading text={title} textStyle='font-bold tracking-wider text-white drop-shadow-dark' noMargin />
+                    <time className='absolute bottom-0 right-0 p-3 text-white drop-shadow-dark font-light'>{`${creationDate}`}</time>
+                    <Link href={'/blog'} className='transition-all ring-0 hover:ring-1 ring-gray-title rounded-full flex justify-center gap-1 items-center absolute top-0 left-0 ml-3 mt-3 p-1 pr-3 text-gray-title drop-shadow-dark font-light'>
+                        <HiOutlineChevronLeft/>
+                        Blog
+                        </Link>
+                </ImageBackground>
+            </div>
+            <div className='p-8 md:px-14 py-10 text-dark-button-2'>
+                <TextSubsubheading text={`${creationDate}`} textStyle='font-light tracking-wider uppercase' />
+                <ContentPost content={content} />
+            </div>
         </article>
     )
 }
 
 export function ListPost({ doc }: PostProps) {
-    const { id, title, createdAt, paragraph, featuredImage } = doc
+    const { id, title, createdAt, featuredImage } = doc
+    const imageSrc = featuredImage ? imagePayloadUrl(featuredImage.url) : ''
+    const creationDate = createdAt.substring(0, 10).replaceAll('-', '.')
     const href = `blog/${id}`
     return (
-        <article>
-            <Link href={href}>
-                <TextSubheading text={title} textStyle='font-medium hover:underline' />
-                <TextSmall text={createdAt.substring(0, 10).replaceAll('-', '.')} />
+        <article className=''>
+            <Link href={href} className='flex flex-col gap-2 bg-black backdrop-blur-md bg-opacity-50 rounded-3xl overflow-hidden'>
+                <div className='w-full h-[220px]'>
+                    <ImageBackground imageUrl={imageSrc} objectFit='cover' containerClassName='w-full h-full flex justify-center items-center'>
+                        <></>
+                    </ImageBackground>
+                </div>
+                <div className='flex flex-col gap-2 pb-4 px-4'>
+                    <TextSubheading text={title} noMargin textStyle='font-medium hover:underline' />
+                    <time className='font-light'>Posted {creationDate}</time>
+                </div>
             </Link>
         </article>
     )
 }
 
 type PostImage = {
-   src?: string,
-   alt?: string
+    src?: string,
+    alt?: string
 }
 
 function PostImage({ src, alt }: PostImage) {
@@ -49,7 +71,7 @@ function PostImage({ src, alt }: PostImage) {
     else return null;
 }
 
-function getImageFromPayload(url: string){
+function imagePayloadUrl(url: string) {
     return `${process.env.PAYLOAD_PUBLIC_URL}${url}`
 }
 
@@ -68,10 +90,10 @@ type ContentImageData = {
     relationTo: string;
 }
 
-function ContentImage({image}:{image: ContentImageData | undefined}) {
+function ContentImage({ image }: { image: ContentImageData | undefined }) {
     if (image && image.url && image.title) return (
         <div className='relative w-20 h-20'>
-            <Image fill src={getImageFromPayload(image.url)} alt={image.title} />
+            <Image fill src={imagePayloadUrl(image.url)} alt={image.title} />
         </div>
     )
     else return null;
@@ -100,11 +122,11 @@ function contentComponent({ type, children, value }: ContentComponent, index: nu
         case 'h1': return <TextTitle key={index} text={children[0].text} textStyle='font-medium' />
         case 'h2': return <TextSubheading key={index} text={children[0].text} textStyle='font-medium' />
         case 'h3': return <TextSubsubheading key={index} text={children[0].text} textStyle='font-medium' />
-        case 'upload': return <ContentImage key={index} image={value}/>
-        case 'code': return <Code key={index} code={children[0].text}/>
+        case 'upload': return <ContentImage key={index} image={value} />
+        case 'code': return <Code key={index} code={children[0].text} />
         case undefined: {
-            if(!children[0].code)return <TextBody key={index} text={children[0].text} textStyle='text-balance' />
-            else return <Code key={index} code={children[0].text}/>
-    }
+            if (!children[0].code) return <TextBody fontSize={18} key={index} text={children[0].text} textStyle='' />
+            else return <Code key={index} code={children[0].text} />
+        }
     }
 }

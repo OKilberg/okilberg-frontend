@@ -7,15 +7,26 @@ type Props = {
   targetSearchValue: string,
   matchingStyle?: string
   className?: string,
-  children: ReactNode
+  children: ReactNode,
+  scrollTo?: string //id
 }
 
-export default function SearchAware({ targetSearchKey, targetSearchValue, className, matchingStyle, children }: Props) {
+export default function SearchAware({ targetSearchKey, targetSearchValue, className, matchingStyle, children, scrollTo }: Props) {
+  const scrollFn = useScrollTo(scrollTo);
   const searchParams = useSearchParams();
   const style = (searchParams.get(targetSearchKey) === targetSearchValue) ? matchingStyle : className;
   return (
-    <div className={style}>
+    <div onClick={scrollFn} className={style}>
       {children}
     </div>
   )
+}
+
+function useScrollTo(id: string | undefined){
+  if(!id || (typeof window === 'undefined')) return undefined;
+  const el = window.document?.getElementById(id)
+  
+  return ()=>el?.scrollIntoView({
+    behavior: 'smooth'
+  });
 }

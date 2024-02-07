@@ -20,6 +20,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      dropShadow: {
+        'dark':'0 2px 2px rgba(0, 0, 0, 0.75)',
+      },
       height: {
         'screen-1/2':'calc(50vh)',
         'screen-3/4':'calc(75vh)',
@@ -41,6 +44,8 @@ const config: Config = {
         'dark-button':'#262626',
         'dark-button-2':'#3F3F3F',
         'gray-stroke':'#BFBFBF',
+        'gray-stroke-2':'#CCCCCC',
+        'white-grey':'#E5E5E6'
       },
       borderRadius: {
         '4xl': '2rem',

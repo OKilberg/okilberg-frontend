@@ -9,7 +9,7 @@ export default async function Skill({ searchParams }: { searchParams: any }) {
     const { skill } = searchParams
     const { title, caption, type, level, experience, field, projects, featuredImage } = await getSkill(skill)
     return (
-        <article className='min-h-fit flex flex-col text-black py-10 px-12'>
+        <article id='skill' className='min-h-fit flex flex-col text-black py-10 px-12'>
             <div className='flex flex-col h-fit gap-6'>
                 <TextBody text={`${caption}`} textStyle='font-light' />
                 <div className='flex justify-between'>
