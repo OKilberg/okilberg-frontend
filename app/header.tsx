@@ -1,11 +1,12 @@
 'use client'
 
-import { ArrowLeftIcon, Component2Icon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
-import { HiOutlineBars2 } from "react-icons/hi2";
+import { HiOutlineBars2, HiOutlineChevronLeft } from "react-icons/hi2";
 import { HiOutlineXMark } from "react-icons/hi2";
+import { CiGrid31 } from "react-icons/ci";
+
 
 
 type Props = {
@@ -64,8 +65,8 @@ function LeftIcon({ state, path, className }: HeaderBtnProps) {
 
     if (path !== '/' && !state) return (
         <Link href={'/'} className={'flex flex-row text-zinc-300 hover:text-zinc-100 duration-150 transition-all ' + className}>
-            <ArrowLeftIcon className='h-16 w-16' />
-            <Component2Icon className='h-16 w-16' />
+            <HiOutlineChevronLeft className='h-16 w-16'/>
+            <CiGrid31 className='h-16 w-16'/>
         </Link>
     )
     else return <span></span>

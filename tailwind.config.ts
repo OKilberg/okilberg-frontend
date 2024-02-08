@@ -22,6 +22,7 @@ const config: Config = {
       },
       dropShadow: {
         'dark':'0 2px 2px rgba(0, 0, 0, 0.75)',
+        'dark-1':'0 1px 1px rgba(0, 0, 0, 0.75)',
       },
       height: {
         'screen-1/2':'calc(50vh)',

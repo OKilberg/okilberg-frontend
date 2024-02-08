@@ -1,5 +1,5 @@
 import ImageBackground from '@/components/ImageBackground'
-import BentoGrid, { BentoItem, BentoItemButton } from '@/components/BentoGrid'
+import BentoGrid, { BentoItem, BentoItemButton, BentoItemButtonSm } from '@/components/BentoGrid'
 import Link from 'next/link'
 import { TextSubheading } from '@/components/Text'
 import InfoChip from '@/components/InfoChip'
@@ -50,7 +50,7 @@ export default function Home() {
               </ImageBackground>
             </BentoItem>
 
-            <BentoItem colSpan={1} rowSpan={1} colStart={1} className='bg-blue-500 hover:border-4 border-gray-300 transition-all' >
+            <BentoItem colSpan={1} rowSpan={1} className='bg-blue-500 hover:border-4 border-gray-300 transition-all' >
               <ImageBackground imageUrl='/linkedin.jpg' objectFit='cover' priority>
                 <a target='_blank' referrerPolicy='no-referrer' rel='noopener' href={'https://www.linkedin.com/in/oscar-orava-kilberg-0588461a3/'} className='flex h-full flex-col items-center justify-center text-gray-400 hover:text-white'>
                   <TextSubheading textStyle='font-medium' text='' noMargin />
@@ -58,11 +58,11 @@ export default function Home() {
               </ImageBackground>
             </BentoItem>
 
-            <BentoItem colSpan={1} rowSpan={2} colStart={2} rowStart={1} className=' bg-black hover:border-4 border-gray-300 transition-all' >
-              <ImageBackground imageUrl='/blog.jpg' objectFit='cover' priority>
-                <Link href={'/blog'} className='flex h-full flex-col items-center justify-center text-transparent drop-shadow-md hover:text-white'>
-                  <InfoChip text='Blog' className='bg-gray-200 text-navy-blue absolute top-2 left-6' />
-                  <ArrowRightIcon className='h-16 w-16' />
+            <BentoItem colSpan={2} rowSpan={1} rowStart={1} className=' bg-black transition-all' >
+              <ImageBackground imageUrl='/blog.png' objectFit='cover' priority>
+                <Link href={'/blog'} className='px-3 pb-3 flex h-full flex-col items-center justify-end text-white bg-gradient-to-t from-black-gradient'>
+                  <InfoChip text='New Post!' className='bg-gray-200 text-navy-blue absolute top-2 right-6' />
+                  <BentoItemButtonSm title='Blog' desc='Projects and discussion'/>
                 </Link>
               </ImageBackground>
             </BentoItem>

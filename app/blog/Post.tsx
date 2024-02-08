@@ -20,8 +20,7 @@ export default async function Post({ doc }: PostProps) {
             <div className='w-full h-[250px] '>
                 <ImageBackground imageUrl={imageSrc} objectFit='cover' containerClassName='w-full h-full flex justify-center items-center'>
                     <TextHeading text={title} textStyle='font-bold tracking-wider text-white drop-shadow-dark' noMargin />
-                    <time className='absolute bottom-0 right-0 p-3 text-white drop-shadow-dark font-light'>{`${creationDate}`}</time>
-                    <Link href={'/blog'} className='transition-all ring-0 hover:ring-1 ring-gray-title rounded-full flex justify-center gap-1 items-center absolute top-0 left-0 ml-3 mt-3 p-1 pr-3 text-gray-title drop-shadow-dark font-light'>
+                    <Link href={'/blog'} className='transition-all ring-0 hover:ring-1 ring-gray-title rounded-full flex justify-center gap-1 items-center absolute top-0 left-0 ml-3 mt-3 p-1 pr-3 text-gray-title drop-shadow-dark-1 font-light'>
                         <HiOutlineChevronLeft/>
                         Blog
                         </Link>

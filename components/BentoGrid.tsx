@@ -68,3 +68,15 @@ export function BentoItemButton({title, desc}: BentoItemButtonProps){
     </div>
   )
 }
+
+export function BentoItemButtonSm({title, desc}: BentoItemButtonProps){
+  return (
+    <div className='flex items-center justify-between pl-4 pr-3 lg:pl-6 lg:pr-4 py-4 w-full transition-all ring-0 hover:ring-1 ring-gray-300 rounded-full'>
+      <div className='flex flex-col gap-1'>
+        <h3 className='font-cairo font-bold text-xl tracking-wider	'>{title}</h3>
+        <p className='font-assistant text-lg font-light'>{desc}</p>
+      </div>
+      <ArrowRightIcon className='h-9 w-9 text-gray-200'/>
+    </div>
+  )
+}
