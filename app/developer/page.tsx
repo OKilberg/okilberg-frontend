@@ -106,7 +106,7 @@ function SkillButton({ searchKey, searchValue, children }: SkillButtonProps) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <SearchAware targetSearchKey={searchKey} targetSearchValue={searchValue} matchingStyle='bg-dark-button bg-opacity-75 text-white outline outline-1 outline-gray-stroke rounded-full' className='bg-dark-button-2 bg-opacity-60 text-gray-stroke-2 rounded-full'>
-        <Link href={'?skill=' + searchValue} className='flex items-center gap-2 py-1 px-4 font-cairo rounded-full font-medium tracking-wider text-lg'>
+        <Link href={'?skill=' + searchValue} scroll={false} className='flex items-center gap-2 py-1 px-4 font-cairo rounded-full font-medium tracking-wider text-lg'>
           {children}
         </Link>
       </SearchAware>

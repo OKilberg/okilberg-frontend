@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+const plugin = require('tailwindcss/plugin')
 
 const config: Config = {
   content: [
@@ -12,6 +13,9 @@ const config: Config = {
       'cairo':['Cairo','serif'],
     },
     extend: {
+      animation: {
+        fadeIn: 'fadeIn .75s ease-in-out forwards',
+      },
       aspectRatio: {
         '21/9':'21 / 9',
       },
@@ -29,6 +33,12 @@ const config: Config = {
         'screen-3/4':'calc(75vh)',
         'screen-5/8':'calc(62.5vh)',
         'screen-3/8':'calc(37.5vh)'
+      },
+      keyframes: {
+        'fadeIn':{
+          '0%': { opacity: '0'},
+          '100%': { opacity: '1'},
+        }
       },
       width: {
         'screen-1/2':'calc(50vw)',
@@ -63,9 +73,37 @@ const config: Config = {
       },
       blur: {
         'xs':'2px'
+      },
+      transitionDelay: {
+        '400': '400ms',
+        '600': '600ms',
+        '800': '800ms',
+        '1200': '1200ms',
+        '1400': '1400ms',
+        '1500': '1500ms',
+        '2000': '2000ms',
+        '2500': '2500ms',
+        '3000': '3000ms',
       }
     },
   },
-  plugins: [],
+  
+  plugins: [
+    //@ts-expect-error
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "animation-delay": (value: any) => {
+            return {
+              "animation-delay": value,
+            };
+          },
+        },
+        {
+          values: theme("transitionDelay"),
+        }
+      );
+    }),
+  ],
 }
 export default config
