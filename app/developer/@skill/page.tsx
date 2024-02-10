@@ -4,6 +4,7 @@ import React from 'react'
 import { FaReact } from 'react-icons/fa'
 //import { ReadonlyURLSearchParams } from 'next/navigation'
 import Image from 'next/image'
+import Divider from '@/components/Divider'
 
 export default async function Skill({ searchParams }: { searchParams: any }) {
     const { skill } = searchParams
@@ -19,9 +20,8 @@ export default async function Skill({ searchParams }: { searchParams: any }) {
                     </div>
                     <FaReact className='text-5xl' />
                 </div>
-                <div className='relative w-full aspect-21/9 rounded-6xl overflow-hidden'>
-                    <Image className='bg-black' src={featuredImage} alt='alt' fill />
-                </div>
+                <Divider color='bg-gray-title'/>
+                
                 <div className='flex justify-between'>
                     <TextBody text={`Skill Details`} textStyle='tracking-wider opacity-75' fontSize={16} />
                     <div className='flex flex-col gap-6'>
@@ -48,4 +48,16 @@ export default async function Skill({ searchParams }: { searchParams: any }) {
             </div>
         </article>
     )
+}
+
+type SkillImageProps = {
+    featuredImage: string
+}
+
+function SkillImage({featuredImage}: SkillImageProps) {
+  return (
+    <div className='relative w-full aspect-21/9 rounded-6xl overflow-hidden'>
+        <Image className='bg-black' src={featuredImage} alt='alt' fill />
+    </div>
+  )
 }

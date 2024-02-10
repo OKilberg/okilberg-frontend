@@ -7,7 +7,7 @@ import { ArrowRightIcon } from '@radix-ui/react-icons'
 
 export default function Home() {
   return (
-    <main className="h-screen w-screen flex flex-col items-center justify-start p-4 overflow-y-auto">
+    <main className="h-screen pb-20 w-screen flex flex-col items-center justify-start p-4 overflow-y-auto">
       <BentoGrid cols={4} mdCols={7} lgCols={10} className='min-h-screen-3/4 w-full lg:w-8/12 pb-24'>
 
         <BentoItem className='h-screen-3/8 rounded-5xl animate-fadeIn bg-black bg-opacity-15' colSpan={4} rowSpan={2} >
