@@ -4,7 +4,7 @@ import React, { ReactNode, Suspense } from 'react'
 export default function Layout({children, skill}: {children: ReactNode, skill: ReactNode}) {
     return (
       <main className='flex flex-col text-white h-[calc(100vh-80px)]'>
-        <BentoGrid cols={5} mdCols={12} lgCols={12} className='w-full overflow-y-scroll' gap='gap-0'>
+        <BentoGrid cols={5} mdCols={12} lgCols={12} className='w-full overflow-y-scroll md:overflow-hidden' gap='gap-0'>
           <BentoItem colSpan={1} className='hidden md:block'/>
           <BentoItem colSpan={5} mdColSpan={4} lgColSpan={5} className='animate-fadeIn p-2 py-10 h-min' rounding='rounded-0'>
             {children}

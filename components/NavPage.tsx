@@ -9,7 +9,7 @@ type NavPageProps = {};
 export async function NavPage({ }: NavPageProps) {
 
   return (
-    <nav className='absolute top-0 left-0 w-screen h-screen pb-20 md:pb-0 overflow-y-auto bg-navy-blue z-20 text-white'>
+    <nav className='absolute top-0 left-0 w-screen h-screen pb-24 md:pb-0 overflow-y-auto bg-navy-blue z-20 text-white'>
       <div className='flex flex-row justify-between items-center h-20 px-20 py-4'>
         <div></div>
         <div></div>
